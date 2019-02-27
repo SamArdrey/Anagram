@@ -5,7 +5,9 @@ class SignupForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      name: '',
+      email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -36,46 +38,45 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <form onSubmit={this.handleSubmit} className="login-form-box">
+      <div className="signup-form-container">
+        <form onSubmit={this.handleSubmit} className="signup-form-box">
           <h1>Anagram</h1>
           <br/>
-          <div className="login-form">
+          <div className="signup-form">
             <br/>
-            <label>
+            <label>email
               <input type="text"
-                value="Email"
+                value={this.state.email}
                 onChange={this.update('email')}
-                className="login-input"
+                className="signup-input"
               />
             </label>
             <br/>
-            <label>
+            <label>Name
               <input type="text"
-                value="Full Name"
-                onChange={this.update('username')}
-                className="login-input"
+                value={this.state.name}
+                onChange={this.update('name')}
+                className="signup-input"
               />
             </label>
             <br/>
-            <label>
+            <label>Username
               <input type="text"
-                value="Username"
+                value={this.state.username}
                 onChange={this.update('username')}
-                className="login-input"
+                className="signup-input"
               />
             </label>
             <br/>
-            <label>
+            <label>password
               <input type="password"
-                value="Password"
+                value={this.state.password}
                 onChange={this.update('password')}
-                className="login-input"
-                autocorrect="off"
+                className="signup-input"
               />
             </label>
             <br/>
-            <button className="session-submit" type="submit">Sign up</button>
+            <button className="session-submit" type="submit" value={this.props.formType}>Sign up</button>
           </div>
         </form>
       </div>
