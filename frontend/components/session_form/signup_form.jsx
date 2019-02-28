@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Link,
+} from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -38,47 +41,61 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit} className="signup-form-box">
-          <h1>Anagram</h1>
-          <br/>
-          <div className="signup-form">
-            <br/>
-            <label>email
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="signup-input"
-              />
-            </label>
-            <br/>
-            <label>Name
-              <input type="text"
-                value={this.state.name}
-                onChange={this.update('name')}
-                className="signup-input"
-              />
-            </label>
-            <br/>
-            <label>Username
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="signup-input"
-              />
-            </label>
-            <br/>
-            <label>password
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="signup-input"
-              />
-            </label>
-            <br/>
-            <button className="session-submit" type="submit" value={this.props.formType}>Sign up</button>
+      <div className="background">
+        <div className="signup-page-container">
+          <h1 className="signup-header">Anagram</h1>
+          <div className="sign-up-text">
+            <p className="signup-message">Sign up to see photos and videos from your friends</p>
           </div>
-        </form>
+          <div className="demo-login">
+            <button className="demo-signup-button" onClick="">
+              Demo Login
+            </button>
+          </div>
+          <div className="signup-form-container">
+            <form onSubmit={this.handleSubmit} className="signup-form-box">
+              <br/>
+              <div className="signup-form">
+                <br/>
+                  <input type="text"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    className="signup-input"
+                    placeholder="Email"
+                  />
+                <br/>
+                  <input type="text"
+                    value={this.state.name}
+                    onChange={this.update('name')}
+                    className="signup-input"
+                    placeholder="Name"
+                  />
+                <br/>
+                  <input type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    className="signup-input"
+                    placeholder="Username"
+                  />
+                <br/>
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className="signup-input"
+                    placeholder="Password"
+                  />
+                <br/>
+                <button className="signup-submit" type="submit" value={this.props.formType}>Sign up</button>
+              </div>
+            </form>
+            <div className="terms">
+              <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy</p>
+            </div>
+          </div>
+          <div className="switch-to-login-container">
+            <p className="switch-to-login-text">Have an account? <Link className="login-link" to="/login">Log in</Link></p>
+          </div>
+        </div>
       </div>
     );
   }

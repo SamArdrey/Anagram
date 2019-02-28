@@ -14,12 +14,9 @@ import LogInFormContainer from './session_form/login_form_container';
 const App = () => (
   <div>
     <header>
-      {/* <Link to="/" className="header-link">
-        <h1>Anagram</h1>
-      </Link> */}
     </header>
     <Switch>
-      <AuthRoute exact path="/login" component={LogInFormContainer} />
+      <AuthRoute exact path="/" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </Switch>
   </div>
