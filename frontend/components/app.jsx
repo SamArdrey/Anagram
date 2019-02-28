@@ -9,12 +9,12 @@ import {
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/router_util';
 import SignUpFormContainer from './signup_form/signup_form_container';
-import SplashPage from './splash/splash';
+import SplashContainer from './splash/splash_container';
 
 const App = () => (
   <div>
     <Switch>
-      <AuthRoute exact path="/" component={SplashPage} />
+      <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </Switch>
   </div>

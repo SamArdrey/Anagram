@@ -1,0 +1,77 @@
+.header-camera-image,
+.header-line-image,
+.header-person-image,
+.header-heart-image,
+.header-compass-image {
+width: 20%
+}
+
+.header-camera-image {
+
+}
+
+.header-heart-image {
+
+}
+
+.header-compass-image {
+
+}
+
+.header-person-image {
+
+}
+
+.header-vertical-line {
+  font-size: 40px;
+}
+
+header {
+  display: block;
+  border-bottom: 1px solid #e6e6e6;
+  height: 67px;
+}
+
+.header-left {
+  display: flex;
+  justify-content: left;
+  margin-left: 20px;
+}
+
+.header-camera-image {
+  float: left;
+  margin-top: 15px;
+}
+
+.header-vertical-line {
+  float: left;
+}
+
+.header-logo {
+  font-family: lobster;
+  font-size: 26px;
+  margin-top: 15px
+}
+
+
+.header-mid {
+//   display: flex;
+//   justify-content: space-between;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-compass-image {
+
+}
+
+.header-heart-image {
+
+}
+
+.header-person-image {
+
+}

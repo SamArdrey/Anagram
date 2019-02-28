@@ -34,7 +34,7 @@ class SessionForm extends React.Component {
       username: 'user',
       password: 'password'
     };
-    this.props.processForm(user)
+    this.props.processForm(user);
   }
 
   render() {

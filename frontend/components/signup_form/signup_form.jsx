@@ -26,7 +26,6 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    redirect
   }
 
   renderErrors() {
@@ -47,7 +46,8 @@ class SignupForm extends React.Component {
       username: 'user',
       password: 'password'
     };
-    this.props.processForm(user);
+    this.props.login(user)
+      // .then(() => this.props.history.push("/"));
   }
 
   render() {
