@@ -13,6 +13,7 @@ class SignupForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -25,6 +26,7 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    redirect
   }
 
   renderErrors() {
@@ -39,6 +41,15 @@ class SignupForm extends React.Component {
     );
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    const user = {
+      username: 'user',
+      password: 'password'
+    };
+    this.props.processForm(user);
+  }
+
   render() {
     return (
       <div className="background">
@@ -47,10 +58,13 @@ class SignupForm extends React.Component {
           <div className="sign-up-text">
             <p className="signup-message">Sign up to see photos and videos from your friends</p>
           </div>
-          <div className="demo-login">
-            <button className="demo-signup-button" onClick="">
+          <div className="signup-demo-login">
+            <button className="demo-signup-button" onClick={this.demoLogin}>
               Demo Login
             </button>
+          </div>
+          <div className="signup-or-div">
+            <p> -------------------------------       OR       -------------------------------</p>
           </div>
           <div className="signup-form-container">
             <form onSubmit={this.handleSubmit} className="signup-form-box">
@@ -61,35 +75,39 @@ class SignupForm extends React.Component {
                     value={this.state.email}
                     onChange={this.update('email')}
                     className="signup-input"
-                    placeholder="Email"
+                    required
                   />
+                  <label htmlFor="email" className="signup-email-label">Email</label>
                 <br/>
                   <input type="text"
                     value={this.state.name}
                     onChange={this.update('name')}
                     className="signup-input"
-                    placeholder="Name"
+                    required
                   />
+                  <label htmlFor="name" className="signup-name-label">Name</label>
                 <br/>
                   <input type="text"
                     value={this.state.username}
                     onChange={this.update('username')}
                     className="signup-input"
-                    placeholder="Username"
+                    required
                   />
+                  <label htmlFor="username" className="signup-username-label">Username</label>
                 <br/>
                   <input type="password"
                     value={this.state.password}
                     onChange={this.update('password')}
                     className="signup-input"
-                    placeholder="Password"
+                    required
                   />
+                  <label htmlFor="password" className="signup-password-label">Password</label>
                 <br/>
                 <button className="signup-submit" type="submit" value={this.props.formType}>Sign up</button>
               </div>
             </form>
             <div className="terms">
-              <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy</p>
+              <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
             </div>
           </div>
           <div className="switch-to-login-container">

@@ -1,7 +1,7 @@
 .signup-header {
   font-size: 45px;
   padding-left: 50px;
-  padding-bottom: 25px;
+  padding-bottom: 11px;
   margin-top: -15px;
   color: #262626;
   font-family: 'Lobster', cursive;
@@ -9,17 +9,20 @@
 
 .signup-message {
   color: gray;
-  font-size: 18px;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 2px
 }
 
-.demo-login {
+.signup-demo-login {
   position: absolute;
-  padding: 9px 90px;
+  padding: 5px 84px;
   padding-right: 95px;
   color: white;
   background: #3897f0;
   font-weight: 700;
   border-radius: 5px;
+  margin-top: 20px;
 }
 
 .signup-input {
@@ -41,11 +44,51 @@
   display: flex;
 }
 
+.signup-username-label,
+  .signup-password-label,
+  .signup-name-label,
+  .signup-email-label{
+  font-size: 12px;
+  color: gray;
+  position: absolute;
+  left: 10%;
+  top: 42.6%;
+  padding: 7px 0 0 13px;
+  transition: all 200ms;
+  opacity: .77;
+  z-index: 11;
+}
+
+.signup-name-label {
+  top: 50.7%;
+}
+
+.signup-username-label {
+  top: 58.9%;
+}
+
+.signup-password-label {
+  top: 67.2%;
+}
+
+.signup-input:focus + .signup-email-label,
+.signup-input:valid + .signup-email-label,
+.signup-input:focus + .signup-name-label,
+.signup-input:valid + .signup-name-label,
+.signup-input:focus + .signup-username-label,
+.signup-input:valid + .signup-username-label,
+.signup-input:focus + .signup-password-label,
+.signup-input:valid + .signup-password-label{
+  font-size: 65%;
+  transform: translate3d(0, -45%, 0);
+  opacity: 1;
+}
+
 .signup-submit {
   position: relative;
-  padding: 9px 100px;
+  padding: 5px 106px;
   margin-bottom: 16px;
-  margin-top: 20px;
+  margin-top: 10px;
   color: white;
   background: #3897f0;
   font-weight: 700;
@@ -62,6 +105,10 @@
   z-index: 10;
 }
 
+.signup-form-box {
+  margin-top: -4px;
+}
+
 .signup-page-container {
   position: absolute;
   background: #fff;
@@ -70,7 +117,7 @@
   margin-left: -173px;
   margin-top: 20px;
   width: 269px;
-  height: 322px;
+  height: 483px;
   padding: 40px;
   padding-left: -10px;
   z-index: 2;
@@ -78,10 +125,10 @@
   border: 1px solid #e6e6e6;
 }
 
-.or-div {
+.signup-or-div {
   font-size: 14px;
-  color: lightgray;
-  padding-bottom: 20px
+  color: #999999;
+  margin-top: 65px;
 }
 
 .switch-to-login-container {
@@ -91,9 +138,9 @@
   top: 73px;
   left: 50%;
   margin-left: -177px;
-  margin-top: 438px;
+  margin-top: 500px;
   width: 260px;
-  height: 40px;
+  height: 50px;
   padding: 20px;
 
   padding-bottom: 0px;
@@ -104,6 +151,11 @@
 }
 
 .terms{
+ text-align: center;
+ color: #999999;
+ width: 250px;
+ font-size: 15px;
+ margin-top: -19px;
 
 }
 

@@ -1,8 +1,9 @@
 import React from 'react';
 import {
   Link,
+  withRouter, Redirect
 } from 'react-router-dom';
-import {login} from '../../actions/session_actions';
+
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(() => <Redirect to='/' />)
   }
 
   demoLogin(e) {
@@ -34,7 +35,6 @@ class SessionForm extends React.Component {
       password: 'password'
     };
     this.props.processForm(user)
-    // .then(() => this.props.history.push('/'));
   }
 
   render() {
