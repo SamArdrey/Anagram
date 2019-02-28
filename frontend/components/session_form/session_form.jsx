@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   update(field) {
@@ -26,14 +27,14 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  demologin(e) {
+  demoLogin(e) {
     e.preventDefault();
     const user = {
-      user: 'SamArdrey',
-      password: 'thisisAfuckingpassword'
+      username: 'user',
+      password: 'password'
     };
-    this.props.login(user)
-      .then(() => this.props.history.push('/'));
+    this.props.processForm(user)
+    // .then(() => this.props.history.push('/'));
   }
 
   render() {
@@ -48,20 +49,24 @@ class SessionForm extends React.Component {
               <div className="login-form">
                 <br/>
                   <input type="text"
+                    id="username"
                     value={this.state.username}
                     onChange={this.update('username')}
                     className="login-input"
                     name="username"
-                    placeholder="Username"
-                  />
+                    required
+                    />
+                  <label htmlFor="username" className="login-username-label">Username</label>
                 <br/>
                   <input type="password"
+                    id="password"
                     name="password"
                     value={this.state.password}
                     onChange={this.update('password')}
                     className="login-input"
-                    placeholder="Password"
+                    required
                   />
+                  <label htmlFor="password" className="login-password-label">Password</label>
                 <br/>
                 <input className="session-submit" type="submit" value={this.props.formType} />
               </div>
@@ -72,7 +77,7 @@ class SessionForm extends React.Component {
           <p> --------------------------------       OR       -------------------------------</p>
         </div>
         <div className="demo-login">
-            <button className="demo-login-button" onClick={this.demologin}>
+            <button className="demo-login-button" onClick={this.demoLogin}>
               Demo Login
             </button>
           </div>

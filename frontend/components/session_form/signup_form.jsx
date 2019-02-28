@@ -93,7 +93,7 @@ class SignupForm extends React.Component {
             </div>
           </div>
           <div className="switch-to-login-container">
-            <p className="switch-to-login-text">Have an account? <Link className="login-link" to="/login">Log in</Link></p>
+            <p className="switch-to-login-text">Have an account? <Link className="login-link" to="/">Log in</Link></p>
           </div>
         </div>
       </div>
