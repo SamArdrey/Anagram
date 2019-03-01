@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
   }
 
   dissabled(field, e) {
-    if (field === "username" && e.length > 0) {
+    if (field === 'username' && e.length > 0) {
       return true;
     } else {
       return false;
@@ -28,6 +28,13 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value,
+      value: (this.dissabled(field, e.currentTarget.value) ? "disabled" : "")
+    });
+  }
+
+  updatePassword(field) {
     return e => this.setState({
       [field]: e.currentTarget.value,
       value: (this.dissabled(field, e.currentTarget.value) ? "disabled" : "")
@@ -43,7 +50,7 @@ class SessionForm extends React.Component {
   demoLogin(e) {
     e.preventDefault();
     const user = {
-      username: 'user',
+      username: 'Chuck',
       password: 'password'
     };
     this.props.processForm(user);

@@ -49,14 +49,14 @@ class Splash extends React.Component {
             </div>
           </div>
         </header>
+        <div className="splash-body">
         <div className="splash-background-div">
           <div className="splash-left">
               <img className="splash-left-image" src={window.images.chuck} />
           </div>
-
           <div className="splash-right">
             <div className="spash-right-top">
-              <div className="splash-right-top-username">Chuck Norris</div>
+              <div className="splash-right-top-username">{this.props.currentUser.username}</div>
               <button className="splash-right-top-logout" onClick={this.logsOutUser}>Logout</button>
             </div>
             <div className="splash-right-mid">
@@ -65,10 +65,11 @@ class Splash extends React.Component {
               <div className="splash-right-mid-following"> 1000 following </div>
             </div>
             <div className="splash-right-bot">
-              <div className="splash-right-bot-name">Name</div>
-              <div className="splash-right-bot-profile">Jesus walks on water, chuck norris swims through concrete</div>
+              <div className="splash-right-bot-name">{this.props.currentUser.name}</div>
+              <div className="splash-right-bot-profile">{this.props.currentUser.profile_body}</div>
             </div>
           </div>
+        </div>
         </div>
         </>
       )
@@ -78,5 +79,6 @@ class Splash extends React.Component {
   }
 
 }
+
 
 export default Splash;
