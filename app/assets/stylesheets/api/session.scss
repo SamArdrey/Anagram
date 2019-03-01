@@ -1,3 +1,16 @@
+input[type="submit"]:disabled {
+  background: #C6E0FA;
+}
+
+body {
+  background: #fafafa;
+  z-index: 100;
+}
+
+header {
+  background: white;
+}
+
 .login-header {
   font-size: 45px;
   padding-left: 50px;
@@ -80,7 +93,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 10;
 }
 
 .login-page-container {

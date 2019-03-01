@@ -10,15 +10,27 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      value: "disabled"
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  dissabled(field, e) {
+    if (field === "username" && e.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   update(field) {
     return e => this.setState({
-      [field]: e.currentTarget.value
+      [field]: e.currentTarget.value,
+      value: (this.dissabled(field, e.currentTarget.value) ? "disabled" : "")
     });
   }
 
@@ -35,6 +47,10 @@ class SessionForm extends React.Component {
       password: 'password'
     };
     this.props.processForm(user);
+  }
+
+  handleChange(e) {
+
   }
 
   render() {
@@ -68,7 +84,7 @@ class SessionForm extends React.Component {
                   />
                   <label htmlFor="password" className="login-password-label">Password</label>
                 <br/>
-                <input className="session-submit" type="submit" value={this.props.formType} />
+                <input className="session-submit" type="submit" value={this.props.formType} disabled={this.state.value}/>
               </div>
             </form>
           </div>

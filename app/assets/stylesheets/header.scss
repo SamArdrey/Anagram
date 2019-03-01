@@ -1,9 +1,25 @@
+.splash-background {
+  padding: 0;
+  margin: 0;
+}
+
+.splash-body-div {
+  background: #fafafa;
+  height: 100%;
+  width: 100%;
+}
+
 .header-camera-image,
 .header-line-image,
 .header-person-image,
 .header-heart-image,
 .header-compass-image {
-width: 20%
+  width: 14.5%;
+}
+
+.header-content{
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-camera-image {
@@ -11,15 +27,15 @@ width: 20%
 }
 
 .header-heart-image {
-
+  width: 16.5%;
 }
 
 .header-compass-image {
-
+  width: 16.5%;
 }
 
 .header-person-image {
-
+  width: 16.5%;
 }
 
 .header-vertical-line {
@@ -27,51 +43,50 @@ width: 20%
 }
 
 header {
-  display: block;
   border-bottom: 1px solid #e6e6e6;
-  height: 67px;
+  height: 72px;
+
 }
 
 .header-left {
-  display: flex;
-  justify-content: left;
-  margin-left: 20px;
+  margin-left: 357px;
 }
 
 .header-camera-image {
   float: left;
-  margin-top: 15px;
+  margin-top: 28px;
+  margin-right: 12px;
 }
 
 .header-vertical-line {
   float: left;
+  margin-top: 14px;
+  margin-right: 10px;
 }
 
 .header-logo {
   font-family: lobster;
   font-size: 26px;
-  margin-top: 15px
-}
-
-
-.header-mid {
-//   display: flex;
-//   justify-content: space-between;
+  margin-top: 22px;
 }
 
 .header-right {
   display: flex;
-  justify-content: flex-end;
+  justify-content: right;
+  position: relative;
+  right: 225px;
+  top: 25px;
 }
 
-.header-compass-image {
-
+.header-compass-link {
+  justify-content: right;
+  position: relative;
+  right: -190px;
 }
 
-.header-heart-image {
-
+.header-heart-link {
+  justify-content: center;
+  position: relative;
+  right: -95px;
 }
 
-.header-person-image {
-
-}

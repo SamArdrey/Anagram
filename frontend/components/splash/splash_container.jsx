@@ -1,4 +1,4 @@
-
+import {logout} from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import Splash from './splash';
 
@@ -9,5 +9,11 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+    return {
+      logoutUser: () => dispatch(logout()),
+    }
+}
 
-export default connect(mapStateToProps, null)(Splash)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Splash);

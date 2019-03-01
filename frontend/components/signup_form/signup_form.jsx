@@ -103,6 +103,7 @@ class SignupForm extends React.Component {
                   />
                   <label htmlFor="password" className="signup-password-label">Password</label>
                 <br/>
+
                 <button className="signup-submit" type="submit" value={this.props.formType}>Sign up</button>
               </div>
             </form>

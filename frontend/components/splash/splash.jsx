@@ -10,10 +10,15 @@ import LoginFormContainer from '../session_form/login_form_container';
 class Splash extends React.Component {
   constructor(props) {
     super(props);
+    this.logsOutUser = this.logsOutUser.bind(this);
   }
 
   componentDidUpdate() {
 
+  }
+
+  logsOutUser() {
+    this.props.logoutUser()
   }
 
   render() {
@@ -26,7 +31,6 @@ class Splash extends React.Component {
             <div className="header-left">
               <a href="/">
                 <img className="header-camera-image" src={window.images.camera}/>
-                {/* <img className="header-line-image" src={window.images.line}/> */}
                 <p className="header-vertical-line"> | </p>
                 <div className="header-logo"> Anagram </div>
               </a>
@@ -45,11 +49,27 @@ class Splash extends React.Component {
             </div>
           </div>
         </header>
-        <body>
-        <div>
-          <h2>LOGGED IN B</h2>
+        <div className="splash-background-div">
+          <div className="splash-left">
+              <img className="splash-left-image" src={window.images.chuck} />
+          </div>
+
+          <div className="splash-right">
+            <div className="spash-right-top">
+              <div className="splash-right-top-username">Chuck Norris</div>
+              <button className="splash-right-top-logout" onClick={this.logsOutUser}>Logout</button>
+            </div>
+            <div className="splash-right-mid">
+              <div className="splash-right-mid-posts"> 1000 posts </div>
+              <div className="splash-right-mid-followers"> 1000 followers </div>
+              <div className="splash-right-mid-following"> 1000 following </div>
+            </div>
+            <div className="splash-right-bot">
+              <div className="splash-right-bot-name">Name</div>
+              <div className="splash-right-bot-profile">Jesus walks on water, chuck norris swims through concrete</div>
+            </div>
+          </div>
         </div>
-        </body>
         </>
       )
     } else {
