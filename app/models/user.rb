@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :name, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  has_one_attached :profile_photo
   has_many :posts,
     primary_key: :id,
     foreign_key: :author_id,

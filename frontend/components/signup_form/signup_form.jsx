@@ -30,13 +30,7 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
+        console.log(this.props.errors)
     );
   }
 
@@ -46,11 +40,11 @@ class SignupForm extends React.Component {
       username: 'user',
       password: 'password'
     };
-    this.props.login(user)
-      // .then(() => this.props.history.push("/"));
+    this.props.login(user);
   }
 
   render() {
+    this.renderErrors()
     return (
       <div className="background">
         <div className="signup-page-container">

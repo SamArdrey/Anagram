@@ -5,7 +5,9 @@
 
 import React from 'react';
 import LoginFormContainer from '../session_form/login_form_container';
-
+import HeaderPartial from './header.jsx'
+import SplashBodyPartial from './body.jsx'
+import postsReducer from '../../reducers/posts_reducer';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -22,55 +24,29 @@ class Splash extends React.Component {
   }
 
   render() {
+    let props = '';
+    console.log(this.props.posts)
+    if (this.props.posts) {
+      props = (
+        this.props.posts.map(post =>
+          <li key={post.id}>
+            x
+            {/* <img src={post.photos[0]} /> */}
+          </li>
+        )
+      )}
 
     if (this.props.loggedIn) {
       return (
         <>
-        <header>
-          <div className="header-content">
-            <div className="header-left">
-              <a href="/">
-                <img className="header-camera-image" src={window.images.camera}/>
-                <p className="header-vertical-line"> | </p>
-                <div className="header-logo"> Anagram </div>
-              </a>
-            </div>
-            <div className="header-mid"></div>
-            <div className="header-right">
-            <a href="/" className="header-compass-link">
-                <img className="header-compass-image" src={window.images.compass}/>
-              </a>
-              <a href="/" className="header-heart-link">
-                <img className="header-heart-image" src={window.images.heart}/>
-              </a>
-              <a href="/" className="header-person-link">
-                <img className="header-person-image" src={window.images.person}/>
-              </a>
-            </div>
+          <HeaderPartial />
+          <SplashBodyPartial user={this.props.currentUser}/>
+
+          <div className="posts-container">
+            <ul className="posts-ul">
+              { props }
+            </ul>
           </div>
-        </header>
-        <div className="splash-body">
-        <div className="splash-background-div">
-          <div className="splash-left">
-              <img className="splash-left-image" src={window.images.chuck} />
-          </div>
-          <div className="splash-right">
-            <div className="spash-right-top">
-              <div className="splash-right-top-username">{this.props.currentUser.username}</div>
-              <button className="splash-right-top-logout" onClick={this.logsOutUser}>Logout</button>
-            </div>
-            <div className="splash-right-mid">
-              <div className="splash-right-mid-posts"> 1000 posts </div>
-              <div className="splash-right-mid-followers"> 1000 followers </div>
-              <div className="splash-right-mid-following"> 1000 following </div>
-            </div>
-            <div className="splash-right-bot">
-              <div className="splash-right-bot-name">{this.props.currentUser.name}</div>
-              <div className="splash-right-bot-profile">{this.props.currentUser.profile_body}</div>
-            </div>
-          </div>
-        </div>
-        </div>
         </>
       )
     } else {
