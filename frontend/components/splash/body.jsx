@@ -11,7 +11,7 @@ class SplashBodyPartial extends React.Component {
           <div className="splash-right">
             <div className="spash-right-top">
               <div className="splash-right-top-username">{this.props.user.username}</div>
-              <button className="splash-right-top-logout" onClick={this.logsOutUser}>Logout</button>
+              <button className="splash-right-top-logout" onClick={this.props.logout}>Logout</button>
             </div>
             <div className="splash-right-mid">
               <div className="splash-right-mid-posts"> 1000 posts </div>

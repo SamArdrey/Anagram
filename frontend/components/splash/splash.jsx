@@ -25,10 +25,10 @@ class Splash extends React.Component {
 
   render() {
     let props = '';
-    console.log(this.props.posts)
-    if (this.props.posts) {
+    console.log(this.props.posts);
+    if (this.props.currentUser && this.props.currentUser.posts) {
       props = (
-        this.props.posts.map(post =>
+        this.props.currentUser.posts.map(post =>
           <li key={post.id}>
             x
             {/* <img src={post.photos[0]} /> */}
@@ -40,7 +40,7 @@ class Splash extends React.Component {
       return (
         <>
           <HeaderPartial />
-          <SplashBodyPartial user={this.props.currentUser}/>
+          <SplashBodyPartial logout={this.logsOutUser} user={this.props.currentUser}/>
 
           <div className="posts-container">
             <ul className="posts-ul">
