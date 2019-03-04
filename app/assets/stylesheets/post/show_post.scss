@@ -1,0 +1,52 @@
+.show-post-container {
+  display: flex;
+}
+
+.show-left-post-container {
+  display: flex;
+  // position: fixed;
+  background: black;
+  max-width: 600px;
+  max-height: 600px;
+  min-height: 450px;
+  width: 600px;
+  min-width: 480px;
+  // margin-right: 335px;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.show-image {
+  object-fit: contain;
+  max-width: 600px;
+  min-width: 480px;
+  max-height: 600px;
+}
+
+.show-right-post-container {
+  background: white;
+  width: 335px;
+  max-width: 335;
+  min-width: 335;
+  max-height: 600px;
+
+  // display: inline-block;
+  flex-direction: column;
+  justify-items: space-between;
+  align-content: space-between;
+}
+
+.show-right-top {
+
+}
+
+.show-right-mid {
+
+}
+
+.show-right-bottom {
+
+}
+

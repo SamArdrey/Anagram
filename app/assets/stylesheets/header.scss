@@ -1,70 +1,62 @@
 .splash-background {
   padding: 0;
   margin: 0;
+  height: 0;
+  width: 0;
 }
 
 .splash-body-div {
   background: #fafafa;
-  height: 100%;
-  width: 100%;
+  height: 0;
+  width: 0;
+}
+
+header {
+  border-bottom: 1px solid #e6e6e6;
+  height: 72px;
+}
+
+.header-box{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 21.26%;
+  margin-right: 21.26%;
 }
 
 .header-camera-image,
 .header-line-image,
 .header-person-image,
-.header-heart-image,
-.header-compass-image {
-  width: 14.5%;
-}
-
-.header-content{
-  display: flex;
-  justify-content: space-between;
-}
-
-.header-camera-image {
-
-}
-
-.header-heart-image {
-  width: 16.5%;
-}
-
-.header-compass-image {
-  width: 16.5%;
-}
-
-.header-person-image {
-  width: 16.5%;
+.header-upload-image {
+  width: 25px;
 }
 
 .header-vertical-line {
   font-size: 40px;
 }
 
-header {
-  border-bottom: 1px solid #e6e6e6;
-  height: 72px;
-
-}
-
 .header-left {
-  margin-left: 357px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .header-camera-image {
-  float: left;
-  margin-top: 28px;
-  margin-right: 12px;
+  display: inline-block;
+  margin-top: 26px;
+}
+
+.header-logo-container {
+
 }
 
 .header-vertical-line {
-  float: left;
-  margin-top: 14px;
-  margin-right: 10px;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: -10px
 }
 
 .header-logo {
+  display: inline-block;
   font-family: lobster;
   font-size: 26px;
   margin-top: 22px;
@@ -72,21 +64,15 @@ header {
 
 .header-right {
   display: flex;
-  justify-content: right;
-  position: relative;
-  right: 225px;
-  top: 25px;
+  justify-content: space-between;
+  margin-top: 24px;
+  width: 80px
 }
 
-.header-compass-link {
-  justify-content: right;
-  position: relative;
-  right: -190px;
+.header-upload-link {
+  display: inline-block;
 }
 
-.header-heart-link {
-  justify-content: center;
-  position: relative;
-  right: -95px;
+.header-person-link {
+  display: inline-block;
 }
-

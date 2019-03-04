@@ -1,0 +1,25 @@
+.posts-page{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap:30px;
+
+  margin-left: 372px;
+  margin-right: 372px;
+  padding-top: 50px;
+  border-top: 1px solid lightgray;
+}
+
+.post-image-li {
+}
+
+.post-image-link {
+  width: 293px;
+  height: 293px;
+}
+
+
+.image-th {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

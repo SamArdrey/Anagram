@@ -53,7 +53,7 @@ class SignupForm extends React.Component {
             <p className="signup-message">Sign up to see photos and videos from your friends</p>
           </div>
           <div className="signup-demo-login">
-            <button className="demo-signup-button" onClick={this.demoLogin}>
+            <button className="signup-demo-button" onClick={this.demoLogin}>
               Demo Login
             </button>
           </div>

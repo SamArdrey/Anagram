@@ -1,3 +1,5 @@
+import merge from 'lodash/merge';
+
 import {
   RECEIVE_ALL_POSTS,
   RECEIVE_CURRENT_POST
@@ -5,12 +7,13 @@ import {
 
 const postsReducer = (state = {}, action) => {
   Object.freeze(state);
+
   switch(action.type) {
     case RECEIVE_CURRENT_POST:
       const newPost = { [action.post.id]: action.post };
       return merge({}, state, newPost);
     case RECEIVE_ALL_POSTS:
-      return action.posts;
+      return merge({}, state, action.posts);
     default:
       return state;
   }

@@ -12,7 +12,7 @@
 class Post < ApplicationRecord
   validates :author_id, presence: true
 
-  has_many_attached :photos
+  has_one_attached :photo
 
   belongs_to :author,
     primary_key: :id,

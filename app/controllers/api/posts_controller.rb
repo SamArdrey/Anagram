@@ -1,10 +1,11 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.find_by(author_id: params[:author_id])
+    @posts = Post.all
+    # @posts = Post.with_attached_photos.find_by(author_id: params[:author_id])
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.with_attached_photos.find(params[:id])
   end
 
   def create

@@ -1,13 +1,8 @@
-// render usual stuff
-// inside of render, if current user exists, render normal splash which is in this
-// if not, render login form container
-// if this.state.user === undefined, then render login container
-
 import React from 'react';
 import LoginFormContainer from '../session_form/login_form_container';
-import HeaderPartial from './header.jsx'
-import SplashBodyPartial from './body.jsx'
-import postsReducer from '../../reducers/posts_reducer';
+import HeaderPartial from './header';
+import SplashBodyPartial from './body';
+import PostsContainer from '../post/posts_container';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -20,34 +15,21 @@ class Splash extends React.Component {
   }
 
   logsOutUser() {
-    this.props.logoutUser()
+    this.props.logoutUser();
   }
 
   render() {
     let props = '';
-    console.log(this.props.posts);
-    if (this.props.currentUser && this.props.currentUser.posts) {
-      props = (
-        this.props.currentUser.posts.map(post =>
-          <li key={post.id}>
-            x
-            {/* <img src={post.photos[0]} /> */}
-          </li>
-        )
-      )}
-
     if (this.props.loggedIn) {
       return (
-        <>
+        <div className="class-body">
           <HeaderPartial />
           <SplashBodyPartial logout={this.logsOutUser} user={this.props.currentUser}/>
+          <PostsContainer posts={this.props.currentUser.posts}/>
+          <img src={this.props.currentUser.posts[0].photoUrl} alt=""/>
+          {console.log(this.props.currentUser.posts[0].photoUrl)}
+        </div>
 
-          <div className="posts-container">
-            <ul className="posts-ul">
-              { props }
-            </ul>
-          </div>
-        </>
       )
     } else {
       return <LoginFormContainer />
