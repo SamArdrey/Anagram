@@ -4,14 +4,12 @@
 
 .show-left-post-container {
   display: flex;
-  // position: fixed;
   background: black;
   max-width: 600px;
   max-height: 600px;
   min-height: 450px;
   width: 600px;
   min-width: 480px;
-  // margin-right: 335px;
   justify-items: center;
   align-content: center;
   align-items: center;
@@ -32,21 +30,65 @@
   min-width: 335;
   max-height: 600px;
 
-  // display: inline-block;
+  display: flex;
   flex-direction: column;
-  justify-items: space-between;
-  align-content: space-between;
+  // justify-content: space-between;
 }
 
 .show-right-top {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #EFEFEF;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
 
 }
 
+.show-right-top-profile-image-container {
+  border-radius: 50%;
+  width: 50px;
+  margin-bottom: 20px;
+  margin-right: 10px
+}
+
+.show-right-top-profile-image {
+  border-radius: 50%;
+  width: 50px;
+}
+
+.show-right-top-username {
+  margin-top: 6px;
+  font-size: 15px;
+}
+
 .show-right-mid {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.show-right-mid-body {
 
 }
 
 .show-right-bottom {
-
+  margin-left: 20px;
+  display: block;
 }
 
+.previous-arrow {
+  margin-right: 50px;
+  display: flex;
+  align-content: center;
+}
+
+.next-arrow {
+  margin-left: 50px;
+  display: flex;
+  align-content: center;
+}
+
+.previous-post-button, .next-post-button {
+  width: 40px;
+}

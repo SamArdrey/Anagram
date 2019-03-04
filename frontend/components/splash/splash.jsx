@@ -10,10 +10,6 @@ class Splash extends React.Component {
     this.logsOutUser = this.logsOutUser.bind(this);
   }
 
-  componentDidUpdate() {
-
-  }
-
   logsOutUser() {
     this.props.logoutUser();
   }
@@ -26,8 +22,6 @@ class Splash extends React.Component {
           <HeaderPartial />
           <SplashBodyPartial logout={this.logsOutUser} user={this.props.currentUser}/>
           <PostsContainer posts={this.props.currentUser.posts}/>
-          <img src={this.props.currentUser.posts[0].photoUrl} alt=""/>
-          {console.log(this.props.currentUser.posts[0].photoUrl)}
         </div>
 
       )

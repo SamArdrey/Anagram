@@ -4,14 +4,16 @@ import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
+  let pPlural = (!!state ? state.posts : "")
+
   return {
-    p: state
+    userPosts: state.entities.posts
   };
 };
 
 const mapDispatchToProps = (dispatch, state) => {
     return {
-      posts: id => dispatch(fetchPosts(id)),
+      // posts: id => dispatch(fetchPosts(id)),
       openModal: (modal, imageLocation) => dispatch(openModal(modal, imageLocation))
     };
 };

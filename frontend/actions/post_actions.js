@@ -13,8 +13,8 @@ export const receivePost = post => ({
   post
 });
 
-export const fetchPosts = () => dispatch => (
-  PostAPIUtil.fetchPosts().then(posts => (
+export const fetchPosts = (userId) => dispatch => (
+  PostAPIUtil.fetchPosts(userId).then(posts => (
     dispatch(receivePosts(posts))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 const mSP = (state) => {
   return {
     currentPost: state.ui.modal.image,
+    currentUser: state.entities.users[state.session.id].username,
     formType: 'show',
   };
 };

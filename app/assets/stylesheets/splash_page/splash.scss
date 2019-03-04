@@ -1,17 +1,11 @@
-.class-body {
-
-}
-
 .splash-body {
   display: flex;
   justify-content: center;
   margin-left: 25%;
   margin-right: 25%;
-
   padding-top: 62px;
   padding-right: 20px;
   padding-left: 20px;
-
   margin-bottom: 45px
 }
 
@@ -39,8 +33,8 @@
   display: inline-block;
   top: 66px;
   right: 17px;
-  width:420px; /* or whatever width you want. */
-  max-width:420px; /* or whatever width you want. */
+  width:420px;
+  max-width:420px;
 }
 
 .splash-right-top-username {
@@ -57,13 +51,6 @@
   padding-left: 10px;
   padding-right: 10px;
   border: 1px solid lightgray;
-}
-
-.fa-upload {
-  // width: 16.5%
-}
-
-.splash-right-mid {
 }
 
 .splash-right-mid-posts {

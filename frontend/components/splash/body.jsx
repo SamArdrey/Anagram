@@ -6,7 +6,7 @@ class SplashBodyPartial extends React.Component {
       <div className="splash-body">
         <div className="splash-background-div">
           <div className="splash-left">
-              <img className="splash-left-image" src={window.images.chuck} />
+              <img className="splash-left-image" src={this.props.user.photoUrl} />
           </div>
           <div className="splash-right">
             <div className="spash-right-top">
