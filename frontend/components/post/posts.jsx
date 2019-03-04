@@ -14,11 +14,9 @@ class Posts extends React.Component {
   }
 
   displayPosts() {
-    console.log (this.props);
     // if (!!this.props.userPosts) {
     //   return (<div />)
     // }
-    console.log(hi!);
     let p = this.props.userPosts.map = post => (
       <button onClick={() => this.props.openModal('show', post.photoUrl)} className="post-image-link">
         <img className="image-th" src={post.photoUrl} />
