@@ -1,20 +1,19 @@
-import fetchPosts from '../../actions/post_actions';
+import { fetchPosts } from '../../actions/post_actions';
 import Posts from './posts';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
-  let pPlural = (!!state ? state.posts : "")
-
   return {
-    userPosts: state.entities.posts
+    userPosts: state.entities.posts,
+    currentUserId: state.session.id
   };
 };
 
 const mapDispatchToProps = (dispatch, state) => {
     return {
-      // posts: id => dispatch(fetchPosts(id)),
-      openModal: (modal, imageLocation) => dispatch(openModal(modal, imageLocation))
+      fetchPosts: id => dispatch(fetchPosts(id)),
+      openModal: (modal, imageLocation, imageId) => dispatch(openModal(modal, imageLocation, imageId))
     };
 };
 

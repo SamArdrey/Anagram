@@ -5,29 +5,57 @@ class ShowPost extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggleNextButton = this.toggleNextButton.bind(this)
-    this.togglePreviousButton = this.togglePreviousButton.bind(this)
+    this.toggleNextButton = this.toggleNextButton.bind(this);
+    this.togglePreviousButton = this.togglePreviousButton.bind(this);
+  }
+
+  componentDidMount() {
+
   }
 
   toggleNextButton() {
-    return (
-      <div className="next-arrow">
-        <img src={window.images.nextPost} className="next-post-button"/>
-      </div>
-    )
+    let checkAgainst = Object.keys(this.props.posts);
+    let nextPostId = Number(this.props.currentPostId) + 1;
+    console.log(nextPostId)
+
+    if ((nextPostId) < checkAgainst[checkAgainst.length-1]) {
+      return (
+        <div className="next-arrow">
+          <button onClick={(this.props.closeModal())} onClick={() =>
+            this.props.openModal(
+              'show',
+              this.props.posts[nextPostId],
+              nextPostId
+              )}>
+            <img src={window.images.nextPost} className="next-post-button"/>
+          </button>
+        </div>
+      )
+    } else {
+      return (
+        <div className="empty-div"></div>
+      )
+    }
   }
 
   togglePreviousButton() {
-    return (
-      <div className="previous-arrow">
-        <img src={window.images.previousPost} className="previous-post-button"/>
-      </div>
-    )
+    if (this.props.currentPostId != 1) {
+      return (
+        <div className="previous-arrow">
+          <img src={window.images.previousPost} className="previous-post-button"/>
+        </div>
+      )
+    } else {
+      return (
+        <div className="empty-div"></div>
+      )
+    }
   }
 
   render() {
     return (
       <div className="show-post-container">
+
         {this.togglePreviousButton()}
         <div className='show-left-post-container'>
           <img className='show-image' src={this.props.currentPost} />
@@ -37,7 +65,7 @@ class ShowPost extends React.Component {
           <div className="show-right-top">
             <div className="show-right-top-profile-image-container">
               <a href="/">
-                <img className="show-right-top-profile-image" src={window.images.chuck}/>
+                <img className="show-right-top-profile-image" src={this.props.currentUserPhoto}/>
               </a>
             </div>
 
@@ -50,8 +78,8 @@ class ShowPost extends React.Component {
 
           <div className="show-right-mid">
             <div className="show-right-mid-body">
-              words <br/>
-              more words;
+              {this.props.currentUser}:
+              {this.props.currentPhotoComment}
             </div>
           </div>
         </div>
@@ -60,6 +88,5 @@ class ShowPost extends React.Component {
     )
   }
 }
-
 
 export default ShowPost;

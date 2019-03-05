@@ -1,7 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
-    # @posts = Post.all
-    @posts = Post.with_attached_photo.find_by(author_id: params[:author_id])
+    @posts = Post.with_attached_photo.where(author_id: params[:author_id])
   end
 
   def show

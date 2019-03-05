@@ -2,29 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import {signup, login} from './util/session_api_util'
-import {logout} from "./actions/session_actions";
-
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.currentUser) {
+    const userPosts = window.currentUser.posts;
+    console.log(window.currentUser);
     const preloadedState = {
       session: { id: window.currentUser.id },
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.id]: window.currentUser },
+        posts: userPosts
       }
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
+    // delete window.userPosts;
   } else {
     store = configureStore();
   }
-  
-  window.store = store;
-  window.signup = signup;
-  window.login = login;
-  window.logout = logout;
+
+  window.store = store; //delete eventually
 
 
   const root = document.getElementById('root');

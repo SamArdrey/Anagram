@@ -1,39 +1,30 @@
 import React from 'react';
-import {
-  Route,
-  Redirect,
-  Switch,
-  Link,
-  HashRouter
-} from 'react-router-dom';
+import {openOpenModal} from '../../actions/modal_actions'
 
 class Posts extends React.Component {
   constructor(props) {
     super(props);
-    this.displayPosts = this.displayPosts.bind(this)
   }
 
-  displayPosts() {
-    // if (!!this.props.userPosts) {
-    //   return (<div />)
-    // }
-    let p = this.props.userPosts.map = post => (
-      <button onClick={() => this.props.openModal('show', post.photoUrl)} className="post-image-link">
-        <img className="image-th" src={post.photoUrl} />
-      </button>
-    );
-
-    return(
-      <div className="post-image-li">
-        {p}
-      </div>
-    )
+  componentDidMount() {
+    this.props.fetchPosts(this.props.currentUserId);
   }
 
   render() {
+    let p = "";
+    if (Object.keys(this.props.userPosts).length > 0) {
+      p = Object.keys(this.props.userPosts).map( id => (
+        <button key={id} onClick={() => this.props.openModal('show', this.props.userPosts[id].photoUrl, id)} className="post-image-link">
+          <img className="image-th" src={this.props.userPosts[id].photoUrl} />
+        </button>
+      ));
+    }
+
     return (
       <div className="posts-page">
-        {this.displayPosts()}
+        <div className="post-image-li">
+         { p }
+        </div>
       </div>
     )
   }

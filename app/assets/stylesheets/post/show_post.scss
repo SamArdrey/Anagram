@@ -29,10 +29,8 @@
   max-width: 335;
   min-width: 335;
   max-height: 600px;
-
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
 }
 
 .show-right-top {
@@ -42,7 +40,6 @@
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 20px;
-
 }
 
 .show-right-top-profile-image-container {
@@ -68,26 +65,24 @@
   margin-top: 10px;
 }
 
-.show-right-mid-body {
-
-}
-
 .show-right-bottom {
   margin-left: 20px;
   display: block;
 }
 
 .previous-arrow {
-  margin-right: 50px;
-  display: flex;
-  align-content: center;
+  margin-top: 20%;
+  height: 41px;
 }
 
 .next-arrow {
-  margin-left: 50px;
-  display: flex;
-  align-content: center;
+  margin-top: 20%;
+  height: 41px;
 }
+
+.next-arrow:hover, .previous-arrow:hover{
+  cursor: pointer;
+ }
 
 .previous-post-button, .next-post-button {
   width: 40px;

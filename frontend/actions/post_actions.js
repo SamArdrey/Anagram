@@ -16,8 +16,6 @@ export const receivePost = post => ({
 export const fetchPosts = (userId) => dispatch => (
   PostAPIUtil.fetchPosts(userId).then(posts => (
     dispatch(receivePosts(posts))
-  ), err => (
-    dispatch(receiveErrors(err.responseJSON))
   ))
 );
 
