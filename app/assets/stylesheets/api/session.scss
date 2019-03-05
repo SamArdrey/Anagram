@@ -78,7 +78,7 @@ header {
 .session-submit {
   position: relative;
   padding: 9px 110px;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   margin-top: 20px;
   color: white;
   background: #3897f0;
@@ -107,14 +107,14 @@ header {
   padding: 40px;
   padding-left: -10px;
   z-index: 2;
-  // border-radius: 5px;
   border: 1px solid #e6e6e6;
 }
 
 .or-div {
+  margin-top: 16px;
   font-size: 14px;
   color: lightgray;
-  padding-bottom: 20px
+  padding-bottom: 20px;
 }
 
 .switch-to-signup-container {
@@ -142,4 +142,11 @@ header {
 
 .signup-link {
   color: #3897f0;
+}
+
+.session-error {
+  position: absolute;
+  bottom: 108px;
+  font-size: 12px;
+  color: red;
 }

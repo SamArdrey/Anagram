@@ -80,14 +80,13 @@
 .signup-input:focus + .signup-password-label,
 .signup-input:valid + .signup-password-label{
   font-size: 65%;
-  transform: translate3d(0, -45%, 0);
+  transform: translate3d(0, -49%, 0);
   opacity: 1;
 }
 
 .signup-submit {
   position: relative;
   padding: 5px 106px;
-  margin-bottom: 16px;
   margin-top: 10px;
   color: white;
   background: #3897f0;
@@ -121,7 +120,6 @@
   padding: 40px;
   padding-left: -10px;
   z-index: 2;
-  // border-radius: 5px;
   border: 1px solid #e6e6e6;
 }
 
@@ -142,7 +140,6 @@
   width: 260px;
   height: 50px;
   padding: 20px;
-
   padding-bottom: 0px;
   padding-left: 70px;
   z-index: 11;
@@ -155,7 +152,7 @@
  color: #999999;
  width: 250px;
  font-size: 15px;
- margin-top: -19px;
+ margin-top: 0px;
 
 }
 
@@ -165,4 +162,16 @@
 
 .login-link {
   color: #3897f0;
+}
+
+.signup-error {
+  font-size: 12px;
+  color: red;
+
+}
+
+.signup-error-messages {
+  position: absolute;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }

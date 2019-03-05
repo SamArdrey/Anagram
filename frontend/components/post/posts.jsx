@@ -1,29 +1,35 @@
 import React from 'react';
-import {openOpenModal} from '../../actions/modal_actions'
 
 class Posts extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      posts: ''
+    };
+    this.renderPhotos = this.renderPhotos.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchPosts(this.props.currentUserId);
+    this.props.fetchPosts();
   }
 
-  render() {
-    let p = "";
+  renderPhotos() {
     if (Object.keys(this.props.userPosts).length > 0) {
-      p = Object.keys(this.props.userPosts).map( id => (
+      this.state.posts = Object.keys(this.props.userPosts).map( id => (
         <button key={id} onClick={() => this.props.openModal('show', this.props.userPosts[id].photoUrl, id)} className="post-image-link">
           <img className="image-th" src={this.props.userPosts[id].photoUrl} />
         </button>
-      ));
+      ))
     }
+  }
+
+  render() {
+    this.renderPhotos()
 
     return (
       <div className="posts-page">
         <div className="post-image-li">
-         { p }
+         {this.state.posts}
         </div>
       </div>
     )

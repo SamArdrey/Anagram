@@ -16,7 +16,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -46,8 +46,18 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  handleChange(e) {
-
+  renderErrors() {
+    let errors = Object.keys(this.props.errors.sessionErrors).map((er) => (
+      <li className="session-error" key={er}>
+        {this.props.errors.sessionErrors[er]}
+      </li>
+    ))
+    
+    return(
+      <ul>
+        {errors}
+      </ul>
+    );
   }
 
   render() {
@@ -84,8 +94,12 @@ class SessionForm extends React.Component {
                 <input className="session-submit" type="submit" value={this.props.formType} disabled={!Boolean(this.state.username) }/>
               </div>
             </form>
+            <div className="session-errors">
+              {this.renderErrors()}
+            </div>
           </div>
         </div>
+
         <div className="or-div">
           <p> --------------------------------       OR       -------------------------------</p>
         </div>

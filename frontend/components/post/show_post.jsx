@@ -9,23 +9,21 @@ class ShowPost extends React.Component {
     this.togglePreviousButton = this.togglePreviousButton.bind(this);
   }
 
-  componentDidMount() {
 
-  }
 
   toggleNextButton() {
-    let checkAgainst = Object.keys(this.props.posts);
-    let nextPostId = Number(this.props.currentPostId) + 1;
-    console.log(nextPostId)
+    let postKeysArray = Object.keys(this.props.posts);
+    let nextPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) + 1;
+    let nextPostKey = postKeysArray[nextPostArrayIndex];
 
-    if ((nextPostId) < checkAgainst[checkAgainst.length-1]) {
+    if (nextPostArrayIndex < postKeysArray.length) {
       return (
         <div className="next-arrow">
           <button onClick={(this.props.closeModal())} onClick={() =>
             this.props.openModal(
               'show',
-              this.props.posts[nextPostId],
-              nextPostId
+              this.props.posts[String(nextPostKey)].photoUrl,
+              String(nextPostKey)
               )}>
             <img src={window.images.nextPost} className="next-post-button"/>
           </button>
@@ -39,10 +37,21 @@ class ShowPost extends React.Component {
   }
 
   togglePreviousButton() {
-    if (this.props.currentPostId != 1) {
+    let postKeysArray = Object.keys(this.props.posts);
+    let previousPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) - 1;
+    let previousPostKey = postKeysArray[previousPostArrayIndex];
+
+    if (previousPostArrayIndex >= 0) {
       return (
         <div className="previous-arrow">
-          <img src={window.images.previousPost} className="previous-post-button"/>
+          <button onClick={(this.props.closeModal())} onClick={() =>
+              this.props.openModal(
+                'show',
+                this.props.posts[String(previousPostKey)].photoUrl,
+                String(previousPostKey)
+                )}>
+            <img src={window.images.previousPost} className="previous-post-button"/>
+          </button>
         </div>
       )
     } else {
@@ -55,8 +64,8 @@ class ShowPost extends React.Component {
   render() {
     return (
       <div className="show-post-container">
-
         {this.togglePreviousButton()}
+
         <div className='show-left-post-container'>
           <img className='show-image' src={this.props.currentPost} />
         </div>
@@ -83,6 +92,7 @@ class ShowPost extends React.Component {
             </div>
           </div>
         </div>
+
         {this.toggleNextButton()}
       </div>
     )

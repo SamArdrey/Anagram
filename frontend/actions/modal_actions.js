@@ -9,9 +9,6 @@ export const openModal = (modal, image, imageId) => {
     imageId
   };
 };
-export const openOpenModal = (modal, image, imageId) => dispatch => (
-  dispatch(openModal(modal, image, imageId)).then(() => history.pushState('fsd'))
-)
 
 export const closeModal = () => {
   return {

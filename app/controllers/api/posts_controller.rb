@@ -1,6 +1,10 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.with_attached_photo.where(author_id: params[:author_id])
+    if params[:user_id] == "undefined"
+      params[:user_id] = current_user.id
+    end
+    # debugger
+    @posts = Post.with_attached_photo.where(author_id: params[:user_id])
   end
 
   def show

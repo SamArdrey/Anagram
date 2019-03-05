@@ -12,8 +12,10 @@ class SignupForm extends React.Component {
       name: '',
       email: ''
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -29,22 +31,29 @@ class SignupForm extends React.Component {
   }
 
   renderErrors() {
+    let errors = Object.keys(this.props.errors.userErrors).map((er) => (
+      <li className="signup-error" key={er}>
+        {this.props.errors.userErrors[er]}
+      </li>
+    ))
+
     return(
-        console.log(this.props.errors)
+      <ul>
+        {errors}
+      </ul>
     );
   }
 
   demoLogin(e) {
     e.preventDefault();
     const user = {
-      username: 'user',
+      username: 'Chuck',
       password: 'thisisApassword1'
     };
     this.props.login(user);
   }
 
   render() {
-    this.renderErrors()
     return (
       <div className="background">
         <div className="signup-page-container">
@@ -97,10 +106,12 @@ class SignupForm extends React.Component {
                   />
                   <label htmlFor="password" className="signup-password-label">Password</label>
                 <br/>
-
                 <button className="signup-submit" type="submit" value={this.props.formType}>Sign up</button>
               </div>
             </form>
+            <div className="signup-error-container">
+              {this.renderErrors()}
+            </div>
             <div className="terms">
               <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
             </div>

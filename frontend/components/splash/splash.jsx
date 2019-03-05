@@ -21,7 +21,7 @@ class Splash extends React.Component {
         <div className="class-body">
           <HeaderPartial />
           <SplashBodyPartial logout={this.logsOutUser} user={this.props.currentUser}/>
-          <PostsContainer posts={this.props.currentUser.posts}/>
+          <PostsContainer />
         </div>
 
       )
@@ -29,7 +29,6 @@ class Splash extends React.Component {
       return <LoginFormContainer />
     }
   }
-
 }
 
 
