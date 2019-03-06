@@ -5,6 +5,7 @@ class Comment < ApplicationRecord
     primary_key: :id,
     foreign_key: :parent_id,
     class_name: :Comment,
+    optional: true
 
   has_many :children,
     primary_key: :parent_id,
