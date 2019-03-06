@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   validates :user_id, :post_id, :body, presence: true
-  # validates :parent_id, optional: true
+  validates :parent_id, optional: true
 
   belongs_to :parent,
     primary_key: :id,
