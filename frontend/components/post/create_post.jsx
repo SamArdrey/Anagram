@@ -1,5 +1,4 @@
 import React from 'react';
-import HeaderPartial from '../splash/header';
 
 class CreatePost extends React.Component {
   constructor(props) {
@@ -40,7 +39,7 @@ class CreatePost extends React.Component {
       (response) => {
         console.log(response.responseJSON);
       }
-    ).then(() => this.history.push('/'));
+    );
   }
 
   handleFile(e) {

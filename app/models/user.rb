@@ -19,10 +19,17 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true}
 
   has_one_attached :profile_photo
+
   has_many :posts,
     primary_key: :id,
     foreign_key: :author_id,
     class_name: :Post,
+    dependent: :destroy
+
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Comment,
     dependent: :destroy
 
   attr_reader :password

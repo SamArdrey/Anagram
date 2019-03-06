@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentContainer from '../comment/comment_container';
 
 class ShowPost extends React.Component {
 
@@ -84,10 +85,7 @@ class ShowPost extends React.Component {
           </div>
 
           <div className="show-right-mid">
-            <div className="show-right-mid-body">
-              {this.props.currentUser}:
-              {this.props.currentPhotoComment}
-            </div>
+            <CommentContainer />
           </div>
         </div>
 
