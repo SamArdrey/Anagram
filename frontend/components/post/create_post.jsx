@@ -34,13 +34,7 @@ class CreatePost extends React.Component {
       data: formData,
       contentType: false,
       processData: false
-    })
-    // .then(
-    //   (response) => console.log(response.message),
-    //   (response) => {
-    //     console.log(response.responseJSON);
-    //   }
-    // );
+    });
   }
 
   handleFile(e) {
