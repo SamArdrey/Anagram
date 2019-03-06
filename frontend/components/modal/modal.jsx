@@ -14,7 +14,7 @@ function Modal({modal, closeModal}) {
       component = <ShowPostContainer />;
       break;
     case 'create':
-      component = <CreatePostConatiner />;
+      component = <CreatePostContainer />;
       break;
     default:
       return null;

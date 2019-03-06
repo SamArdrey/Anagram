@@ -1,6 +1,6 @@
 import ShowPost from './show_post';
 import React from 'react';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { openPostModal, closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 
 const mSP = (state) => {
@@ -18,7 +18,7 @@ const mSP = (state) => {
 const mDP = dispatch => {
   return {
     closeModal: () => dispatch(closeModal),
-    openModal: (modal, imageLocation, imageId) => dispatch(openModal(modal, imageLocation, imageId))
+    openPostModal: (modal, imageLocation, imageId) => dispatch(openPostModal(modal, imageLocation, imageId))
   };
 };
 

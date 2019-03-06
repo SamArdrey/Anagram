@@ -1,4 +1,5 @@
 import React from 'react';
+import { openCreatePostModal } from '../../actions/modal_actions';
 
 class HeaderPartial extends React.Component {
   render(){
@@ -15,9 +16,9 @@ class HeaderPartial extends React.Component {
             </a>
           </div>
           <div className="header-right">
-          <a href="/" className="header-upload-image">
+          <button onClick={() => this.props.openCreatePostModal('create')} className="header-upload-image-c">
             <img className="header-upload-image" src={window.images.upload}/>
-          </a>
+          </button>
           <a href="/" className="header-person-image">
               <img className="header-person-image" src={window.images.person}/>
             </a>

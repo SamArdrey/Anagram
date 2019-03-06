@@ -9,8 +9,6 @@ class ShowPost extends React.Component {
     this.togglePreviousButton = this.togglePreviousButton.bind(this);
   }
 
-
-
   toggleNextButton() {
     let postKeysArray = Object.keys(this.props.posts);
     let nextPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) + 1;
@@ -20,7 +18,7 @@ class ShowPost extends React.Component {
       return (
         <div className="next-arrow">
           <button onClick={(this.props.closeModal())} onClick={() =>
-            this.props.openModal(
+            this.props.openPostModal(
               'show',
               this.props.posts[String(nextPostKey)].photoUrl,
               String(nextPostKey)
@@ -45,7 +43,7 @@ class ShowPost extends React.Component {
       return (
         <div className="previous-arrow">
           <button onClick={(this.props.closeModal())} onClick={() =>
-              this.props.openModal(
+              this.props.openPostModal(
                 'show',
                 this.props.posts[String(previousPostKey)].photoUrl,
                 String(previousPostKey)

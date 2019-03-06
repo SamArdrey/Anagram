@@ -1,7 +1,7 @@
 import { fetchPosts } from '../../actions/post_actions';
 import Posts from './posts';
 import { connect } from 'react-redux';
-import { openModal } from '../../actions/modal_actions';
+import { openPostModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, state) => {
     return {
       fetchPosts: userId => dispatch(fetchPosts(userId)),
-      openModal: (modal, imageLocation, imageId) => dispatch(openModal(modal, imageLocation, imageId))
+      openPostModal: (modal, imageLocation, imageId) => dispatch(openPostModal(modal, imageLocation, imageId))
     };
 };
 

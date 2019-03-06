@@ -3,7 +3,6 @@ class Api::PostsController < ApplicationController
     if params[:user_id] == "undefined"
       params[:user_id] = current_user.id
     end
-    # debugger
     @posts = Post.with_attached_photo.where(author_id: params[:user_id])
   end
 
@@ -15,7 +14,7 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render "api/posts/#{@post.id}"
+      render json: "yarr!"
     else
       render json: @post.errors.full_messages, status: 422
     end
@@ -23,6 +22,6 @@ class Api::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:author_id, :body_text)
+    params.require(:post).permit(:author_id, :body_text, :photo)
   end
 end

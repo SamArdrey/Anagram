@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
         {this.props.errors.sessionErrors[er]}
       </li>
     ))
-    
+
     return(
       <ul>
         {errors}

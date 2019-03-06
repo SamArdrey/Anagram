@@ -1,5 +1,6 @@
 input[type="submit"]:disabled {
   background: #C6E0FA;
+  cursor: default;
 }
 
 body {
@@ -78,7 +79,6 @@ header {
 .session-submit {
   position: relative;
   padding: 9px 110px;
-  // margin-bottom: 16px;
   margin-top: 20px;
   color: white;
   background: #3897f0;

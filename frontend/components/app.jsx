@@ -10,14 +10,14 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/router_util';
 import SignUpFormContainer from './signup_form/signup_form_container';
 import SplashContainer from './splash/splash_container';
-import Modal from './modal/modal';
+import CreatePostContainer from './post/create_post_container';
 
 const App = () => (
   <div>
-    <Modal />
     <Switch>
-      <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      <ProtectedRoute exact path="/upload" component={CreatePostContainer} />
+      <Route exact path="/" component={SplashContainer} />
     </Switch>
   </div>
 );
