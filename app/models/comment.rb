@@ -2,10 +2,9 @@ class Comment < ApplicationRecord
   validates :user_id, :post_id, :body, presence: true
 
   belongs_to :parent,
-  primary_key: :id,
-  foreign_key: :parent_id,
-  class_name: :Comment,
-  optional: true
+    primary_key: :id,
+    foreign_key: :parent_id,
+    class_name: :Comment,
 
   has_many :children,
     primary_key: :parent_id,
