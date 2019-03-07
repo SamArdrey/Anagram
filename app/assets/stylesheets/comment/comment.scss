@@ -1,0 +1,41 @@
+.show-right-mid-body {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+  max-height: 300px;
+  overflow: auto;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.show-right-bottom {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: block;
+
+}
+
+.show-right-mid-body {
+
+}
+
+.show-right-mid-ul {
+}
+
+.comment-body {
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+}
+
+.comment-username {
+  font-weight: bold;
+}
+
+.parent-comment {
+  display: flex;
+}
+
+.child-comment {
+  display: flex;
+}

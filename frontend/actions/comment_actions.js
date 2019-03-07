@@ -36,6 +36,8 @@ export const createComment = comment => dispatch => (
 );
 
 export const fetchAuthor = authorId => dispatch => (
-  CommentAPIUtil.fetchAuthor(authorId).then(comment =>
-    dispatch(receiveComment(comment)))
+  $.ajax ({
+    method: 'GET',
+    url: `api/users/${authorId}`
+  })
 );

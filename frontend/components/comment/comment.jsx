@@ -1,12 +1,11 @@
 import React from 'react';
-import { runInThisContext } from 'vm';
 
 class Comment extends React.Component {
   constructor(props) {
     super(props);
 
     this.showComments = this.showComments.bind(this);
-    this.generateCommentList = this.showComments.bind(this);
+    this.generateCommentList = this.generateCommentList.bind(this);
     this.organizeCommentList = this.organizeCommentList.bind(this);
   }
 
@@ -14,17 +13,14 @@ class Comment extends React.Component {
     this.props.fetchComments(this.props.currentPostId);
   }
 
-  showComments(comment, userId, newClass) {
+  showComments(comment, newClass, key) {
     let newClassName = (newClass == "parent" ? "parent-comment" : "child-comment");
 
     if (comment) {
       return (
-        <li className={newClassName}>
-          <div className="comment-user">
-            {this.props.comments[comment]}:
-          </div>
-          <div className="comment">
-            {comment}
+        <li key={key} className={newClassName}>
+          <div className="comment-body">
+            <a href="/" className="comment-username">{comment.user.username}</a>: {comment.body}
           </div>
         </li>
       )
@@ -36,49 +32,54 @@ class Comment extends React.Component {
   }
 
   organizeCommentList() {
-    let comments = Object.keys(this.props.comments)
+    let comments = Object.keys(this.props.comments);
     let organizedComments = [];
-    organizedComments.push(comments.unshift())
 
-    while (comments) {
-      let commentId = this.props.comments[organizedComments[organizedComments.length-1]].Id
+    if (comments.length === 0) return [];
+
+    organizedComments.push(comments[comments.length-1]);
+    comments.pop();
+
+    while (comments.length > 0) {
+      let commentId = this.props.comments[organizedComments[organizedComments.length-1]].id;
+
       for (let i = 0; i < comments.length; i++) {
-        let commentParentId = this.props.comments[comments[i]].parentId
+        let commentParentId = this.props.comments[comments[i]].parentId;
 
         if (commentId === commentParentId) {
-          organizedComments.push(comments.unshift())
+          organizedComments.push(comments[comments.length-1]);
+          comments.pop();
         }
       }
+      if (comments.length === 0) break;
+      organizedComments.push(comments[comments.length-1]);
+      comments.pop();
 
-      organizedComments.push(comments.unshift())
     }
-    console.log(organizedComments)
+
     return organizedComments;
   }
 
   generateCommentList() {
-
-    let organizedComments = this.organizeCommentList()
+    let organizedComments = this.organizeCommentList();
 
     return organizedComments.map(id => {
-      let newClass
+      let newClass;
       if (!this.props.comments[id].parentId) {
-        newClass = "parent"
+        newClass = "parent";
       }
-
-      this.showComments(this.props.comments[id].body, this.props.comments[id].userId, newClass)
+      return this.showComments(this.props.comments[id], newClass, id);
     })
   }
 
   render() {
-    let comments = this.generateCommentList()
-
+    const userCommentObject = {body: this.props.postBodyText, user: {username: this.props.currentUser}};
     return (
       <>
         <div className="show-right-mid-body">
           <ul className="show-right-mid-ul">
-              { this.showComments(this.props.postBodyText, this.props.currentUserId, "parent") }
-              { comments }
+              { this.showComments(userCommentObject, "parent", 0) }
+              { this.generateCommentList() }
           </ul>
 
         </div>

@@ -17,7 +17,7 @@ const mSP = state => {
 const mDP = dispatch => {
   return {
     fetchComments: postId => dispatch(fetchComments(postId)),
-    fetchAuthor: authorId => dispatch(fetchAuthor(authorId)),
+    author: authorId => dispatch(fetchAuthor(authorId)),
   };
 };
 

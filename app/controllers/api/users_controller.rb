@@ -3,6 +3,10 @@ class Api::UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
+  def index
+    @users = User.all
+  end
+
   def create
     @user = User.new(user_params)
 
