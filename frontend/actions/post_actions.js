@@ -34,3 +34,11 @@ export const createPost = post => dispatch => (
     dispatch(receiveErrors(err.responseJSON))
   ))
 );
+
+export const uploadPhoto = photo => dispatch => (
+  PostAPIUtil.uploadPhoto(photo).then(post =>
+    dispatch(receivePost(post)
+  ), err => (
+      dispatch(receiveErrors(err.responseJSON))
+  ))
+);

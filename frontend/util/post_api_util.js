@@ -19,3 +19,13 @@ export const createPost = post => (
     data: { post }
   })
 );
+
+export const uploadPhoto = formData => (
+  $.ajax({
+    url: '/api/posts/',
+    method: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false
+  })
+)

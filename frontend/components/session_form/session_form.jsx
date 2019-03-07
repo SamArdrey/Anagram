@@ -25,12 +25,6 @@ class SessionForm extends React.Component {
     });
   }
 
-  updatePassword(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value,
-    });
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);

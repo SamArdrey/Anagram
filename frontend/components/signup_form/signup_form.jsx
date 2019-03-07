@@ -109,9 +109,9 @@ class SignupForm extends React.Component {
                 <button className="signup-submit" type="submit" value={this.props.formType}>Sign up</button>
               </div>
             </form>
-            {/* <div className="signup-error-container">
+            <div className="signup-error-container">
               {this.renderErrors()}
-            </div> */}
+            </div>
             <div className="terms">
               <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
             </div>

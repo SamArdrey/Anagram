@@ -22,22 +22,11 @@ export const fetchComments = postId => dispatch => (
 export const fetchComment = commentId => dispatch => (
   CommentAPIUtil.fetchComment(commentId).then(comment =>
     dispatch(receiceComment(comment)
-  ), err => (
-    dispatch(receiveErrors(err.responseJSON))
   ))
 );
 
 export const createComment = comment => dispatch => (
-  CommentAPIUtil.createComment(comment).then(comment =>
+  CommentAPIUtil.createComment(comment).then((comment) =>
     dispatch(receiveComment(comment)
-  ), err => (
-    (receiveErrors(err.responseJSON))
   ))
-);
-
-export const fetchAuthor = authorId => dispatch => (
-  $.ajax ({
-    method: 'GET',
-    url: `api/users/${authorId}`
-  })
 );

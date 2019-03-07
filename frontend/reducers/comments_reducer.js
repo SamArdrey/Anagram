@@ -12,7 +12,8 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_ALL_COMMENTS:
       return merge({}, action.comments);
     case RECEIVE_COMMENT:
-      return merge({}, action.comment);
+      const newComment = { [action.comment.id]: action.comment };
+      return merge({}, state, newComment);
     default:
       return state;
   }

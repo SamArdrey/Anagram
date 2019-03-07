@@ -16,7 +16,7 @@ const postsReducer = (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       return merge({}, state, action.posts);
     case RECEIVE_CURRENT_POST:
-      const newPost = { [action.posts.id]: action.post };
+      const newPost = { [action.post.id]: action.post };
       return merge({}, state, newPost);
     case RECEIVE_ALL_POSTS:
       return merge({}, state, action.posts);

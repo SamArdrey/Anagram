@@ -8,18 +8,18 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(post_params)
+    @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
 
     if @comment.save
-      render json: "success!"
+      render :show
     else
-      render @post.errors.full_messages, status: 422
+      render @comment.errors.full_messages, status: 422
     end
   end
 
   private
-  def post_params
+  def comment_params
     params.require(:comment).permit(:post_id, :parent_id, :body)
   end
 end

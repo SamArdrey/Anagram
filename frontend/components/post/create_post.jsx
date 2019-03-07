@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Redirect
+} from 'react-router-dom';
 
 class CreatePost extends React.Component {
   constructor(props) {
@@ -28,13 +31,7 @@ class CreatePost extends React.Component {
     if (this.state.photoFile) {
       formData.append('post[photo]', this.state.photoFile);
     }
-    $.ajax({
-      url: '/api/posts',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    });
+    this.props.uploadPhoto(formData).then(() => this.props.closeModal());
   }
 
   handleFile(e) {

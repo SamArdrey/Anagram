@@ -14,7 +14,7 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render json: "yarr!"
+      render :show
     else
       render json: @post.errors.full_messages, status: 422
     end
