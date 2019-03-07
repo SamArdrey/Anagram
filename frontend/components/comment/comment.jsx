@@ -41,16 +41,14 @@ class Comment extends React.Component {
   showComments(comment, newClass, key) {
     let newClassName = (newClass == "parent" ? "parent-comment" : "child-comment");
     let hidden = (newClass == "parent" ? false : true);
-    let unhideDropdownComment = false;
 
     if (comment) {
       return (
-        <li key={key} className={newClassName}>
+        <li key={ key } className={ newClassName }>
           <div className="comment-body">
-            <a href="/" className="comment-username">{comment.user.username}</a>: {comment.body}
+            <a href="/" className="comment-username">{ comment.user.username }</a>: { comment.body }
             <br/>
-            <a className="reply-button" hidden={ hidden } onClick={ unhideDropdownComment = true }>reply</a>
-            <div classname="dropdown-comment" hidden={ unhideDropdownComment }>
+            <div classname="sub-comment-form" >
               { this.submitForm("comment-on-parent") }
             </div>
           </div>
@@ -107,14 +105,14 @@ class Comment extends React.Component {
 
   submitForm(newClassName) {
     return (
-      <form onSubmit={ this.handleSubmit } className={ newClassName}>
+      <form onSubmit={ this.handleSubmit } className={ newClassName }>
         <input
           type="text"
           value={ this.state.body }
           onChange={ this.update() }
-          className="comment-input"
-          name="comment" />
-
+          className={ newClassName }
+          name="comment"
+          />
         <button type="submit" />
       </form>
     )

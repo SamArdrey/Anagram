@@ -21,7 +21,7 @@ export const fetchComments = postId => dispatch => (
 
 export const fetchComment = commentId => dispatch => (
   CommentAPIUtil.fetchComment(commentId).then(comment =>
-    dispatch(receiceComment(comment)
+    dispatch(receiveComment(comment)
   ))
 );
 
