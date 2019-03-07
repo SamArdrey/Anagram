@@ -51,10 +51,10 @@ class Comment extends React.Component {
           comments.pop();
         }
       }
+      
       if (comments.length === 0) break;
       organizedComments.push(comments[comments.length-1]);
       comments.pop();
-
     }
 
     return organizedComments;
