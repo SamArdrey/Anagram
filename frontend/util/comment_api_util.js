@@ -1,7 +1,7 @@
 export const fetchComments = (postId) => (
   $.ajax ({
     method: 'GET',
-    url: `/api/posts/${postId/comments}`
+    url: `/api/posts/${postId}/comments`
   })
 );
 
@@ -20,3 +20,9 @@ export const createComment = comment => (
   })
 );
 
+export const fetchAuthor = authorId => (
+  $.ajax ({
+    method: 'GET',
+    url: `api/users/${authorId}`
+  })
+);

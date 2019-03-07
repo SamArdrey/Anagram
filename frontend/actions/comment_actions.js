@@ -34,3 +34,8 @@ export const createComment = comment => dispatch => (
     (receiveErrors(err.responseJSON))
   ))
 );
+
+export const fetchAuthor = authorId => dispatch => (
+  CommentAPIUtil.fetchAuthor(authorId).then(comment =>
+    dispatch(receiveComment(comment)))
+);
