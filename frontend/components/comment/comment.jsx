@@ -39,7 +39,7 @@ class Comment extends React.Component {
     let comments = Object.keys(this.props.comments)
     let organizedComments = [];
     organizedComments.push(comments.unshift())
-    console.log("PENIS")
+
     while (comments) {
       let commentId = this.props.comments[organizedComments[organizedComments.length-1]].Id
       for (let i = 0; i < comments.length; i++) {
@@ -57,7 +57,6 @@ class Comment extends React.Component {
   }
 
   generateCommentList() {
-    console.log("PENI")
 
     let organizedComments = this.organizeCommentList()
 
@@ -73,7 +72,7 @@ class Comment extends React.Component {
 
   render() {
     let comments = this.generateCommentList()
-    
+
     return (
       <>
         <div className="show-right-mid-body">
