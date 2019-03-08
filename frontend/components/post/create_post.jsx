@@ -1,7 +1,4 @@
 import React from 'react';
-import {
-  Redirect
-} from 'react-router-dom';
 
 class CreatePost extends React.Component {
   constructor(props) {
@@ -78,6 +75,7 @@ class CreatePost extends React.Component {
               className="create-post-right-text-area"
               cols="30"
               rows="10"
+              placeholder="Comment..."
               value={this.state.bodyText}
               onChange={this.handleInput}>
                 Write a caption.Write a caption.Write a caption.Write a caption.Write a caption.Write a caption.
