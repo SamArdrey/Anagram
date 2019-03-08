@@ -105,6 +105,8 @@ On the backend, Rails and Heroku were chosen due to its ability for quick app sc
 
 For the frontend, Redux states were setup with separate actions for users, posts, comments and errors. Keeping the state normalized makes compartmentalization an ease and redundancy low.
 
+Images were hosted via AWS
+
 ## Additional Resources
 * [Schema](https://github.com/SamArdrey/ThisIsNotInstagram/wiki/Schema)
 
