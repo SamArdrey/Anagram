@@ -4,7 +4,6 @@ import { fetchComments, createComment } from '../../actions/comment_actions';
 import { openPostModal } from '../../actions/modal_actions';
 
 const mSP = state => {
-  console.log(state)
   return {
     currentPostId: state.ui.modal.imageId,
     currentUserId: state.session.id,
