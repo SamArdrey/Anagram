@@ -14,7 +14,7 @@ The first run on this website was designed and built in less than a two week tim
 ## Nested Comments
 Comments are nested to their parent comments. Comments can be nested once.
 
-[Nested Comments]: (/Users/admin/Desktop/Anagram/docs/images/nested_comments.png "Anagram Nested Comments")
+![Nested Comments]: (/Users/admin/Desktop/Anagram/docs/images/nested_comments.png "Anagram Nested Comments")
 
 This was accomplished by bubble sorting an array of the comment ids, and using this to key into the comment object.
 
