@@ -2,6 +2,13 @@ import React from 'react';
 
 class SplashBodyPartial extends React.Component {
   render(){
+    let posts;
+    if (this.props.user.posts) {
+      posts = Object.keys(this.props.user.posts).length;
+    } else {
+      posts = 0;
+    }
+
     return(
       <div className="splash-body">
         <div className="splash-background-div">
@@ -15,7 +22,7 @@ class SplashBodyPartial extends React.Component {
               <a href="/" className='upload-container'><i className="fas fa-upload"></i></a>
             </div>
             <div className="splash-right-mid">
-              <div className="splash-right-mid-posts"> 1000 posts </div>
+              <div className="splash-right-mid-posts"> { posts } posts </div>
               <div className="splash-right-mid-followers"> 1000 followers </div>
               <div className="splash-right-mid-following"> 1000 following </div>
             </div>

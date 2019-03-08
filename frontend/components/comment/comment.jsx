@@ -62,11 +62,12 @@ class Comment extends React.Component {
 
     if (comments.length === 0) return [];
 
-    organizedComments.push(comments[0]);
-    comments.shift();
-
     while (comments.length > 0) {
-      let commentId = this.props.comments[organizedComments[organizedComments.length-1]].id;
+      organizedComments.push(comments[0]);
+      comments.shift();
+
+      let commentId = this.props.comments[
+        organizedComments[organizedComments.length-1]].id;
 
       for (let i = 0; i < comments.length; i++) {
         let commentParentId = this.props.comments[comments[i]].parentId;
@@ -76,10 +77,6 @@ class Comment extends React.Component {
           comments.shift();
         }
       }
-
-      if (comments.length === 0) break;
-      organizedComments.push(comments[0]);
-      comments.shift();
     }
 
     return organizedComments;
@@ -115,7 +112,8 @@ class Comment extends React.Component {
   }
 
   render() {
-    const userCommentObject = { body: this.props.postBodyText, user: { username: this.props.currentUser }};
+    const userCommentObject = { body: this.props.postBodyText,
+      user: { username: this.props.currentUser }};
 
     return (
       <>
