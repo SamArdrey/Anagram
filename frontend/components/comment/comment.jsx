@@ -40,17 +40,12 @@ class Comment extends React.Component {
 
   showComments(comment, newClass, key) {
     let newClassName = (newClass == "parent" ? "parent-comment" : "child-comment");
-    let hidden = (newClass == "parent" ? false : true);
 
     if (comment) {
       return (
         <li key={ key } className={ newClassName }>
           <div className="comment-body">
             <a href="/" className="comment-username">{ comment.user.username }</a>: { comment.body }
-            <br/>
-            <div classname="sub-comment-form" >
-              { this.submitForm("comment-on-parent") }
-            </div>
           </div>
         </li>
       )
@@ -111,6 +106,7 @@ class Comment extends React.Component {
           value={ this.state.body }
           onChange={ this.update() }
           className={ newClassName }
+          placeholder="Add a comment..."
           name="comment"
           />
         <button type="submit" />
