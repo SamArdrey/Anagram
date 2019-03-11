@@ -1,5 +1,5 @@
 # Anagram
-[Live Demo] (http://www.myanagram.herokuapp.com/#/)
+[Live Demo](https://myanagram.herokuapp.com/#/)
 
 Anagram is a social photo sharing website, inspired by instagram. It uses Rails and PostreSQL on the backend and React.js and Redux on the front.
 
