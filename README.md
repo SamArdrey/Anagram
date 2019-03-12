@@ -5,7 +5,7 @@ Anagram is a social photo sharing website, inspired by instagram. It uses Rails 
 
 The first run on this website was designed and built in less than a two week timespan.
 
-##Anagram
+## Anagram
 
 * BCrypt-based frontend to backend user auth
 * Users can view and upload photos
