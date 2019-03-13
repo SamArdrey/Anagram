@@ -12,7 +12,8 @@ class Comment extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showComments = this.showComments.bind(this);
     this.generateCommentList = this.generateCommentList.bind(this);
-    this.organizeCommentList = this.organizeCommentList.bind(this);
+    this.organizeComments = this.organizeComments.bind(this);
+    this.mergeComments = this.mergeComments.bind(this);
     this.submitForm = this.submitForm.bind(this);
   }
 
@@ -56,34 +57,8 @@ class Comment extends React.Component {
     }
   }
 
-  organizeCommentList() {
-    let comments = Object.keys(this.props.comments);
-    let organizedComments = [];
-
-    if (comments.length === 0) return [];
-
-    while (comments.length > 0) {
-      organizedComments.push(comments[0]);
-      comments.shift();
-
-      let commentId = this.props.comments[
-        organizedComments[organizedComments.length-1]].id;
-
-      for (let i = 0; i < comments.length; i++) {
-        let commentParentId = this.props.comments[comments[i]].parentId;
-
-        if (commentId === commentParentId) {
-          organizedComments.push(comments[0]);
-          comments.shift();
-        }
-      }
-    }
-
-    return organizedComments;
-  }
-
   generateCommentList() {
-    let organizedComments = this.organizeCommentList();
+    let organizedComments = this.organizeComments();
 
     return organizedComments.map(id => {
       let newClass;
@@ -94,6 +69,56 @@ class Comment extends React.Component {
       return this.showComments(this.props.comments[id], newClass, id);
     })
   }
+
+  organizeComments() {
+    const comments = Object.keys(this.props.comments);
+
+    const parents = [];
+    const children = [];
+
+    if (comments.length === 0) return [];
+
+    while (!!comments[0]) {
+      const parentId = this.props.comments[comments[0]].parentId
+
+      if (!!parentId) {
+        children.push(comments[0])
+      } else {
+        parents.push(comments[0])
+      }
+
+      comments.shift();
+    }
+
+    return this.mergeComments(parents, children);
+  }
+
+  mergeComments(parents, children) {
+
+    const merged = [parents[0]];
+    parents.shift();
+
+    while (!!parents[0] && !!children[0]) {
+      const parentId = this.props.comments[children[0]].parentId
+
+      //If the last comment pushed into merged had a parentId, then we use that
+      // to find the next comment, else, we use the comments regular id
+      const lastMerged = (!!this.props.comments[merged[merged.length-1]].parentId ?
+        this.props.comments[merged[merged.length-1]].parentId :
+        this.props.comments[merged[merged.length-1]].id)
+
+      if (parentId && parentId === lastMerged) {
+        merged.push(children[0]);
+        children.shift();
+      } else {
+        merged.push(parents[0]);
+        parents.shift();
+      }
+    }
+
+    return merged.concat(parents).concat(children);
+  }
+
 
   submitForm(newClassName) {
     return (
