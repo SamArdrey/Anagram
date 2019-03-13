@@ -16,7 +16,7 @@ Comments are nested to their parent comments. Comments can be nested once.
 
 ![Nested Comments](https://github.com/SamArdrey/Anagram/blob/master/docs/images/nested_comments.png)
 
-This was accomplished by bubble sorting an array of the comment ids, and using this to key into the comment object.
+This was accomplished by bubble sorting an array of the comment ids, and using this to key into the comment object. Note: I will be refactoring this down to On or On log n in the near future.
 
 ```
 organizeCommentList() {
@@ -124,3 +124,4 @@ I am planning on adding the following:
 * Profile pages for other users
 * Ability to make sub-comments
 * Likes and follows
+* Refactor comments using an algorithm inspired by merge sort
