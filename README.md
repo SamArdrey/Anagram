@@ -16,7 +16,7 @@ Comments are nested to their parent comments. Comments can be nested once.
 
 ![Nested Comments](https://github.com/SamArdrey/Anagram/blob/master/docs/images/nested_comments.png)
 
-This was accomplished by using a modified version of merge-sort.
+This was accomplished by using a modified version of merge-sort. I wasn't able to refactor to better than 0n, however.
 
 ```
 organizeComments() {
