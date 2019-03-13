@@ -16,47 +16,57 @@ Comments are nested to their parent comments. Comments can be nested once.
 
 ![Nested Comments](https://github.com/SamArdrey/Anagram/blob/master/docs/images/nested_comments.png)
 
-This was accomplished by bubble sorting an array of the comment ids, and using this to key into the comment object. Note: I will be refactoring this down to On or On log n in the near future.
+This was accomplished by using a modified version of merge-sort.
 
 ```
-organizeCommentList() {
-  let comments = Object.keys(this.props.comments);
-  let organizedComments = [];
+organizeComments() {
+    const comments = Object.keys(this.props.comments);
 
-  if (comments.length === 0) return [];
+    const parents = [];
+    const children = [];
 
-  while (comments.length > 0) {
-    organizedComments.push(comments[0]);
-    comments.shift();
+    if (comments.length === 0) return [];
 
-    let commentId = this.props.comments[
-      organizedComments[organizedComments.length-1]].id;
+    while (!!comments[0]) {
+      const parentId = this.props.comments[comments[0]].parentId
 
-    for (let i = 0; i < comments.length; i++) {
-      let commentParentId = this.props.comments[comments[i]].parentId;
-
-      if (commentId === commentParentId) {
-        organizedComments.push(comments[0]);
-        comments.shift();
+      if (!!parentId) {
+        children.push(comments[0])
+      } else {
+        parents.push(comments[0])
       }
+
+      comments.shift();
     }
+
+    return this.mergeComments(parents, children);
   }
 
-  return organizedComments;
-}
+  mergeComments(parents, children) {
 
-generateCommentList() {
-  let organizedComments = this.organizeCommentList();
+    const merged = [parents[0]];
+    parents.shift();
 
-  return organizedComments.map(id => {
-    let newClass;
-    if (!this.props.comments[id].parentId) {
-      newClass = "parent";
+    while (!!parents[0] && !!children[0]) {
+      const parentId = this.props.comments[children[0]].parentId
+
+      //If the last comment pushed into merged had a parentId, then we use that
+      // to find the next comment, else, we use the comments regular id
+      const lastMerged = (!!this.props.comments[merged[merged.length-1]].parentId ?
+        this.props.comments[merged[merged.length-1]].parentId :
+        this.props.comments[merged[merged.length-1]].id)
+
+      if (parentId && parentId === lastMerged) {
+        merged.push(children[0]);
+        children.shift();
+      } else {
+        merged.push(parents[0]);
+        parents.shift();
+      }
     }
 
-    return this.showComments(this.props.comments[id], newClass, id);
-  })
-}
+    return merged.concat(parents).concat(children);
+  }
 ```
 
 ## Photo Upload
@@ -124,4 +134,3 @@ I am planning on adding the following:
 * Profile pages for other users
 * Ability to make sub-comments
 * Likes and follows
-* Refactor comments using an algorithm inspired by merge sort
