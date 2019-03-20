@@ -119,7 +119,6 @@ class Comment extends React.Component {
     return merged.concat(parents).concat(children);
   }
 
-
   submitForm(newClassName) {
     return (
       <form onSubmit={ this.handleSubmit } className={ newClassName }>
