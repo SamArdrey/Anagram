@@ -128,7 +128,7 @@ Images were hosted via AWS
 
 * [MVP List](https://github.com/SamArdrey/Anagram/wiki/mvp-list)
 
-## Planned Future Features
+## Planned Features
 I am planning on adding the following:
 * Feed
 * Profile pages for other users
