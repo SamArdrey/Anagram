@@ -3,14 +3,14 @@ import Posts from './posts';
 import { connect } from 'react-redux';
 import { openPostModal } from '../../actions/modal_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     userPosts: state.entities.posts,
-    currentUserId: state.session.id
+    currentProfileId: ownProps.currentProfileId,
   };
 };
 
-const mapDispatchToProps = (dispatch, state) => {
+const mapDispatchToProps = (dispatch) => {
     return {
       fetchPosts: userId => dispatch(fetchPosts(userId)),
       openPostModal: (modal, imageLocation, imageId) => dispatch(openPostModal(modal, imageLocation, imageId))

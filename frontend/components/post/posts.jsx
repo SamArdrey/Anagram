@@ -10,13 +10,19 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts(this.props.currentProfileId);
   }
 
   renderPhotos() {
     if (Object.keys(this.props.userPosts).length > 0) {
       this.state.posts = Object.keys(this.props.userPosts).map( id => (
-        <button key={id} onClick={() => this.props.openPostModal('show', this.props.userPosts[id].photoUrl, id)} className="post-image-link">
+        <button
+          key={id}
+          onClick={() =>
+            this.props.openPostModal('show', this.props.userPosts[id].photoUrl, id)
+          }
+          className="post-image-link"
+        >
           <img className="image-th" src={this.props.userPosts[id].photoUrl} />
         </button>
       ))

@@ -1,4 +1,4 @@
-.splash-body {
+.profile-body {
   display: flex;
   justify-content: center;
   margin-left: 25%;
@@ -9,27 +9,27 @@
   margin-bottom: 45px
 }
 
-.splash-background-div {
+.profile-background-div {
   font-size: 15px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   top: 110px;
   left: 100%;
 }
 
-.splash-left {
+.profile-left {
   display: inline-block;
   max-width: 150px;
   margin-right: 100px;
 }
 
-.splash-left-image {
+.profile-left-image {
   border-radius: 50%;
   width: 150px;
   top: 63px;
   right: 115px;
 }
 
-.splash-right {
+.profile-right {
   display: inline-block;
   top: 66px;
   right: 17px;
@@ -37,11 +37,11 @@
   max-width:420px;
 }
 
-.splash-right-top-username {
+.profile-right-top-username {
   font-size: 27px;
 }
 
-.splash-right-top-logout {
+.profile-right-top-logout {
   position: relative;
   top: -30px;
   right: -165px;
@@ -53,31 +53,31 @@
   border: 1px solid lightgray;
 }
 
-.splash-right-mid-posts {
+.profile-right-mid-posts {
   position: relative;
   bottom: 6px;
 }
 
-.splash-right-mid-followers {
+.profile-right-mid-followers {
   position: relative;
   bottom: 24px;
   left: 112px;
 }
 
-.splash-right-mid-following {
+.profile-right-mid-following {
   position: relative;
   bottom: 42px;
   left: 250px;
 }
 
-.splash-right-bot-name {
+.profile-right-bot-name {
   position: relative;
   bottom: 17px;
   font-size: 16px;
   font-weight: bold;
 }
 
-.splash-right-bot-profile {
+.profile-right-bot-profile {
   position: relative;
   bottom: 12px;
 }
