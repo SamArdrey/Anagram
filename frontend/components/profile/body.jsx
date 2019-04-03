@@ -2,6 +2,10 @@ import React from 'react';
 
 class ProfileBodyPartial extends React.Component {
   render(){
+    if (!this.props.currentUser) {
+      return null;
+    }
+
     let posts;
     if (this.props.currentUser.posts) {
       posts = Object.keys(this.props.currentUser.posts).length;
@@ -9,7 +13,7 @@ class ProfileBodyPartial extends React.Component {
       posts = 0;
     }
 
-    //Hide logout button?
+    //Hide logout button if looking at another users profile
     let hidden;
     if (this.props.currentUserId === this.props.profileId) {
       hidden = false;

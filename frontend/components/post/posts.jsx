@@ -10,7 +10,7 @@ class Posts extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts(this.props.currentProfileId);
+    // this.props.fetchPosts(this.props.currentProfileId);
   }
 
   renderPhotos() {

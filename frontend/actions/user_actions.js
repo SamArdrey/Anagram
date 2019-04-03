@@ -10,7 +10,7 @@ export const receiveAllUsers = payload => ({
 });
 
 export const receiveUser = payload => ({
-  type: RECEIVE_USER_ERRORS,
+  type: RECEIVE_USER,
   payload
 });
 
