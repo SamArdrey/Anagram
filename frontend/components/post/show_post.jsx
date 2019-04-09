@@ -2,7 +2,6 @@ import React from 'react';
 import CommentContainer from '../comment/comment_container';
 
 class ShowPost extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -85,7 +84,9 @@ class ShowPost extends React.Component {
           </div>
 
           <div className="show-right-mid">
-            <CommentContainer />
+            <CommentContainer
+              post={this.props.posts[this.props.currentPostId]}
+            />
           </div>
         </div>
 

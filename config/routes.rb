@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
     resource :session, only: [:create, :destroy, :show]
 
+    get "posts/all", to: "posts#all"
     resources :posts, only: [:create, :new]
     resources :posts, only: [:show] do
       resources :comments, only: [:index]
     end
 
+    get "comments/all", to: "comments#all"
     resources :comments, only: [:show, :create]
   end
 

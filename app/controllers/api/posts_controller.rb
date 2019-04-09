@@ -6,6 +6,11 @@ class Api::PostsController < ApplicationController
     @posts = Post.with_attached_photo.where(author_id: params[:user_id])
   end
 
+  def all
+    @posts = Post.with_attached_photo.all
+    # @posts.reject! { |post| post.author_id == current_user.id }
+  end
+
   def show
     @post = Post.with_attached_photo.find(params[:id])
   end

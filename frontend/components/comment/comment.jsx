@@ -6,8 +6,9 @@ class Comment extends React.Component {
     this.state = {
       body: '',
       parentId: null,
-      post_id: this.props.currentPostId
+      postId: this.props.currentPostId || this.props.postId
     };
+    this.formType = {};
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showComments = this.showComments.bind(this);
@@ -15,21 +16,26 @@ class Comment extends React.Component {
     this.organizeComments = this.organizeComments.bind(this);
     this.mergeComments = this.mergeComments.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.commentType = this.commentType.bind(this);
+
+    this.commentType();
   }
 
   componentDidMount() {
-    this.props.fetchComments(this.props.currentPostId);
+    if (!this.props.comments) {
+      this.props.fetchComments(this.state.postId);
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const body = Object.assign({}, this.state);
-    this.state = {
+    this.setState = {
       body: '',
       parentId: null,
-      post_id: this.props.currentPostId
+      post_id: this.props.currentPostId || this.props.postId
     };
-    this.render();
+
     this.props.createComment(body);
   }
 
@@ -41,12 +47,13 @@ class Comment extends React.Component {
 
   showComments(comment, newClass, key) {
     let newClassName = (newClass == "parent" ? "parent-comment" : "child-comment");
+    let link = "/#/" + comment.userId;
 
     if (comment) {
       return (
         <li key={ key } className={ newClassName }>
           <div className="comment-body">
-            <a href="/" className="comment-username">{ comment.user.username }</a>: { comment.body }
+            <a href={link} className="comment-username">{ comment.user.username }</a>: { comment.body }
           </div>
         </li>
       )
@@ -71,7 +78,8 @@ class Comment extends React.Component {
   }
 
   organizeComments() {
-    const comments = Object.keys(this.props.comments);
+    let comments = Object.keys(this.props.comments);
+    comments = comments.filter(id => this.props.comments[id].postId == this.state.postId)
 
     const parents = [];
     const children = [];
@@ -135,20 +143,35 @@ class Comment extends React.Component {
     )
   }
 
+  commentType() {
+    if (this.props.formType === 'Explore Form') {
+      this.formType['midBody'] = "show-right-mid-body-explore",
+      this.formType['midUl'] = "show-right-mid-ul-explore",
+      this.formType['bottomBody'] = "show-right-bottom-body-explore"
+    } else {
+      this.formType['midBody'] = "show-right-mid-body",
+      this.formType['midUl'] = "show-right-mid-ul",
+      this.formType['bottomBody'] = "show-right-bottom-body"
+    }
+  }
+
   render() {
-    const userCommentObject = { body: this.props.postBodyText,
-      user: { username: this.props.currentUser }};
+    const userCommentObject = {
+      body: this.props.postBodyText,
+      userId: this.props.post.authorId,
+      user: { username: this.props.post.username }
+    };
 
     return (
       <>
-        <div className="show-right-mid-body">
-          <ul className="show-right-mid-ul">
+        <div className={this.formType.midBody}>
+          <ul className={this.formType.midUl}>
               { this.showComments(userCommentObject, "parent", 0) }
               { this.generateCommentList() }
           </ul>
 
         </div>
-        <div className="show-right-bottom-body">
+        <div className={this.formType.bottomBody}>
           { this.submitForm("comment-form") }
         </div>
       </>

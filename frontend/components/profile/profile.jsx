@@ -8,7 +8,8 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       profileId: this.props.profileId
-    }
+    };
+    
     this.changeState = this.changeState.bind(this);
   }
 
