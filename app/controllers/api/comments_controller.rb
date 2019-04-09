@@ -3,6 +3,10 @@ class Api::CommentsController < ApplicationController
     @comments = Comment.where(post_id: params[:post_id])
   end
 
+  def all
+    @comments = Comment.all
+  end
+
   def show
     @comment = Comment.find_by(id: params[:id])
   end

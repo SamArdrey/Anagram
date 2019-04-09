@@ -4,5 +4,6 @@
     json.photoUrl url_for(post.photo)
     json.commentIds post.comment_ids
     json.username post.author.username
+    json.profilePic url_for(post.author.profile_photo)
   end
 end

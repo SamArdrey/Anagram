@@ -19,6 +19,12 @@ export const fetchPosts = userId => dispatch => (
   ))
 );
 
+export const fetchAllPosts = () => dispatch => (
+  PostAPIUtil.fetchAllPosts().then(posts => (
+    dispatch(receivePosts(posts))
+  ))
+);
+
 export const fetchPost = id => dispatch => (
   PostAPIUtil.fetchPost(id).then(post => (
     dispatch(receivePost(post))

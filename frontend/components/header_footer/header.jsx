@@ -1,7 +1,7 @@
 import React from 'react';
 import { openCreatePostModal } from '../../actions/modal_actions';
 
-class HeaderPartial extends React.Component {
+class Header extends React.Component {
   render(){
     return(
       <header>
@@ -19,7 +19,7 @@ class HeaderPartial extends React.Component {
           <button onClick={() => this.props.openCreatePostModal('create')} className="header-upload-image-c">
             <img className="header-upload-image" src={window.images.upload}/>
           </button>
-          <a href="/" className="header-person-image">
+          <a href={`/#/${this.props.currentUserId}`} className="header-person-image">
               <img className="header-person-image" src={window.images.person}/>
             </a>
           </div>
@@ -29,4 +29,4 @@ class HeaderPartial extends React.Component {
   }
 }
 
-export default HeaderPartial;
+export default Header;

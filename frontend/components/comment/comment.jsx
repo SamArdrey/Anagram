@@ -3,11 +3,14 @@ import React from 'react';
 class Comment extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       body: '',
-      parentId: null,
-      post_id: this.props.currentPostId
+      parent_id: null,
+      post_id: this.props.currentPostId,
     };
+
+    this.formType = {};
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showComments = this.showComments.bind(this);
@@ -15,38 +18,26 @@ class Comment extends React.Component {
     this.organizeComments = this.organizeComments.bind(this);
     this.mergeComments = this.mergeComments.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.commentType = this.commentType.bind(this);
+
+    this.commentType();
   }
 
   componentDidMount() {
-    this.props.fetchComments(this.props.currentPostId);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const body = Object.assign({}, this.state);
-    this.state = {
-      body: '',
-      parentId: null,
-      post_id: this.props.currentPostId
-    };
-    this.render();
-    this.props.createComment(body);
-  }
-
-  update() {
-    return e => this.setState({
-      body: e.currentTarget.value,
-    });
+    if (this.props.formType !== 'Explore Form') {
+      this.props.fetchComments(this.props.currentPostId);
+    }
   }
 
   showComments(comment, newClass, key) {
     let newClassName = (newClass == "parent" ? "parent-comment" : "child-comment");
+    let link = "/#/" + comment.userId;
 
     if (comment) {
       return (
         <li key={ key } className={ newClassName }>
           <div className="comment-body">
-            <a href="/" className="comment-username">{ comment.user.username }</a>: { comment.body }
+            <a href={link} className="comment-username">{ comment.user.username }</a>: { comment.body }
           </div>
         </li>
       )
@@ -59,19 +50,20 @@ class Comment extends React.Component {
 
   generateCommentList() {
     let organizedComments = this.organizeComments();
+    // debugger;
 
     return organizedComments.map(id => {
       let newClass;
       if (!this.props.comments[id].parentId) {
         newClass = "parent";
       }
-
       return this.showComments(this.props.comments[id], newClass, id);
     })
   }
 
   organizeComments() {
-    const comments = Object.keys(this.props.comments);
+    let comments = Object.keys(this.props.comments);
+    comments = comments.filter(id => this.props.comments[id].postId == this.state.post_id)
 
     const parents = [];
     const children = [];
@@ -119,7 +111,6 @@ class Comment extends React.Component {
     return merged.concat(parents).concat(children);
   }
 
-
   submitForm(newClassName) {
     return (
       <form onSubmit={ this.handleSubmit } className={ newClassName }>
@@ -136,20 +127,53 @@ class Comment extends React.Component {
     )
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const body = Object.assign({}, this.state);
+    this.props.createComment(body).then(() => {
+        this.setState({
+        body: '',
+        parent_id: null,
+        post_id: this.props.currentPostId
+        })
+    });
+  }
+
+  update() {
+    return e => this.setState({
+      body: e.currentTarget.value,
+    });
+  }
+
+  commentType() {
+    if (this.props.formType === 'Explore Form') {
+      this.formType['midBody'] = "show-right-mid-body-explore",
+      this.formType['midUl'] = "show-right-mid-ul-explore",
+      this.formType['bottomBody'] = "show-right-bottom-body-explore"
+    } else {
+      this.formType['midBody'] = "show-right-mid-body",
+      this.formType['midUl'] = "show-right-mid-ul",
+      this.formType['bottomBody'] = "show-right-bottom-body"
+    }
+  }
+
   render() {
-    const userCommentObject = { body: this.props.postBodyText,
-      user: { username: this.props.currentUser }};
+    const userCommentObject = {
+      body: this.props.postBodyText,
+      userId: this.props.post.authorId,
+      user: { username: this.props.post.username }
+    };
 
     return (
       <>
-        <div className="show-right-mid-body">
-          <ul className="show-right-mid-ul">
+        <div className={this.formType.midBody}>
+          <ul className={this.formType.midUl}>
               { this.showComments(userCommentObject, "parent", 0) }
               { this.generateCommentList() }
           </ul>
 
         </div>
-        <div className="show-right-bottom-body">
+        <div className={this.formType.bottomBody}>
           { this.submitForm("comment-form") }
         </div>
       </>

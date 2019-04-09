@@ -12,6 +12,13 @@ export const fetchPost = id => (
   })
 );
 
+export const fetchAllPosts = () => (
+  $.ajax ({
+    method: 'GET',
+    url: `/api/posts/all`,
+  })
+);
+
 export const createPost = post => (
   $.ajax ({
     method: 'POST',

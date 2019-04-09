@@ -99,8 +99,8 @@ class SignupForm extends React.Component {
                   <label htmlFor="username" className="signup-username-label">Username</label>
                 <br/>
                   <input type="password"
-                    value={this.state.password}
-                    onChange={this.update('password')}
+                    value={ this.state.password }
+                    onChange={ this.update('password') }
                     className="signup-input"
                     required
                   />
@@ -110,7 +110,7 @@ class SignupForm extends React.Component {
               </div>
             </form>
             <div className="signup-error-container">
-              {this.renderErrors()}
+              { this.renderErrors() }
             </div>
             <div className="terms">
               <p>By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>

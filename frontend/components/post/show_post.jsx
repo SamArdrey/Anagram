@@ -2,7 +2,6 @@ import React from 'react';
 import CommentContainer from '../comment/comment_container';
 
 class ShowPost extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -11,7 +10,7 @@ class ShowPost extends React.Component {
   }
 
   toggleNextButton() {
-    let postKeysArray = Object.keys(this.props.posts);
+    let postKeysArray = Object.keys(this.props.posts).reverse();
     let nextPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) + 1;
     let nextPostKey = postKeysArray[nextPostArrayIndex];
 
@@ -36,7 +35,7 @@ class ShowPost extends React.Component {
   }
 
   togglePreviousButton() {
-    let postKeysArray = Object.keys(this.props.posts);
+    let postKeysArray = Object.keys(this.props.posts).reverse();
     let previousPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) - 1;
     let previousPostKey = postKeysArray[previousPostArrayIndex];
 
@@ -85,7 +84,9 @@ class ShowPost extends React.Component {
           </div>
 
           <div className="show-right-mid">
-            <CommentContainer />
+            <CommentContainer
+              post={this.props.posts[this.props.currentPostId]}
+            />
           </div>
         </div>
 

@@ -19,6 +19,12 @@ export const fetchComments = postId => dispatch => (
   ))
 );
 
+export const fetchAllComments = () => dispatch => (
+  CommentAPIUtil.fetchAllComments().then(comments => (
+    dispatch(receiveComments(comments))
+  ))
+);
+
 export const fetchComment = commentId => dispatch => (
   CommentAPIUtil.fetchComment(commentId).then(comment =>
     dispatch(receiveComment(comment)
