@@ -24,11 +24,25 @@ class Explore extends React.Component {
     }
 
 
-    let posts = Object.keys(this.props.posts).map(id => {
+    let posts = Object.keys(this.props.posts).reverse().map(id => {
+      let profileLink = "/#/" + this.props.posts[id].authorId;
+
       return (
         <div className="post-container" key={id}>
-          <div className="post-image" key={id}>
-            <img className="post-image-image" key={id} src={this.props.posts[id].photoUrl}/>
+          <div className="post-top">
+            <a className="explore-profile-pic-link" href={profileLink}>
+              <div className="explore-profile-pic-container">
+                <img className="explore-profile-pic" src={this.props.posts[id].profilePic}/>
+              </div>
+            </a>
+            <a className="explore-profile-name-link" href={profileLink}>
+              {this.props.posts[id].username}
+            </a>
+          </div>
+          <div className="post-mid" key={id}>
+            <img className="post-mid-image" key={id} src={this.props.posts[id].photoUrl}/>
+          </div>
+          <div className="post-bottom">
             <CommentContainer
               formType='Explore Form'
               postId={id}

@@ -15,7 +15,7 @@ class Posts extends React.Component {
 
   renderPhotos() {
     if (Object.keys(this.props.userPosts).length > 0) {
-      this.state.posts = Object.keys(this.props.userPosts).map( id => (
+      this.state.posts = Object.keys(this.props.userPosts).reverse().map( id => (
         <button
           key={id}
           onClick={() =>
