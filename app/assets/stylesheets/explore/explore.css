@@ -17,25 +17,37 @@
 }
 
 .post-top {
-
+  display: flex;
+  padding: 16px;
+  flex-direction: row;
+  position: relative;
+  vertical-align: baseline;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .explore-profile-pic-link {
 }
 
 .explore-profile-pic-container {
-  max-width: 4vw;
-  max-height: 4vh;
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 5px;
+  box-sizing: border-box;
 }
 
 .explore-profile-pic {
   object-fit: cover;
+  border-image-repeat: stretch;
   border-radius: 50%;
   height: 100%
 }
 
 .explore-profile-name-link {
-
+  margin-left: -5px;
+  padding-left: 5px;
+  line-height: 18px;
+  font-weight: 600;
 }
 
 
@@ -58,11 +70,10 @@
   display: flex;
   margin-left: 20px;
   margin-top: 10px;
-  height: 300px;
-  max-height: 300px;
+  height: 100%;
+  max-height: 200px;
   overflow: auto;
   margin-bottom: 5px;
-  border-bottom: 1px solid #EFEFEF;
 }
 
 .show-right-mid-ul-explore {
@@ -70,15 +81,12 @@
 }
 
 .show-right-bottom-body-explore {
-  margin-left: 20px;
-  margin-right: 20px;
-  display: block;
+  border-top: 1px solid #EFEFEF;
 }
 
 .comment-body {
-
 }
 
 .comment-username {
-  font-weight: bolder;
+  /* font-weight: 600; */
 }

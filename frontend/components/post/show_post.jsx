@@ -10,7 +10,7 @@ class ShowPost extends React.Component {
   }
 
   toggleNextButton() {
-    let postKeysArray = Object.keys(this.props.posts);
+    let postKeysArray = Object.keys(this.props.posts).reverse();
     let nextPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) + 1;
     let nextPostKey = postKeysArray[nextPostArrayIndex];
 
@@ -35,7 +35,7 @@ class ShowPost extends React.Component {
   }
 
   togglePreviousButton() {
-    let postKeysArray = Object.keys(this.props.posts);
+    let postKeysArray = Object.keys(this.props.posts).reverse();
     let previousPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) - 1;
     let previousPostKey = postKeysArray[previousPostArrayIndex];
 

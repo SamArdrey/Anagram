@@ -3,11 +3,13 @@ import React from 'react';
 class Comment extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       body: '',
-      parentId: null,
-      postId: this.props.currentPostId || this.props.postId
+      parent_id: null,
+      post_id: this.props.currentPostId,
     };
+
     this.formType = {};
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,27 +24,9 @@ class Comment extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.comments) {
-      this.props.fetchComments(this.state.postId);
+    if (this.props.formType !== 'Explore Form') {
+      this.props.fetchComments(this.props.currentPostId);
     }
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const body = Object.assign({}, this.state);
-    this.setState = {
-      body: '',
-      parentId: null,
-      post_id: this.props.currentPostId || this.props.postId
-    };
-
-    this.props.createComment(body);
-  }
-
-  update() {
-    return e => this.setState({
-      body: e.currentTarget.value,
-    });
   }
 
   showComments(comment, newClass, key) {
@@ -66,20 +50,20 @@ class Comment extends React.Component {
 
   generateCommentList() {
     let organizedComments = this.organizeComments();
+    // debugger;
 
     return organizedComments.map(id => {
       let newClass;
       if (!this.props.comments[id].parentId) {
         newClass = "parent";
       }
-
       return this.showComments(this.props.comments[id], newClass, id);
     })
   }
 
   organizeComments() {
     let comments = Object.keys(this.props.comments);
-    comments = comments.filter(id => this.props.comments[id].postId == this.state.postId)
+    comments = comments.filter(id => this.props.comments[id].postId == this.state.post_id)
 
     const parents = [];
     const children = [];
@@ -141,6 +125,24 @@ class Comment extends React.Component {
         <button type="submit" />
       </form>
     )
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const body = Object.assign({}, this.state);
+    this.props.createComment(body).then(() => {
+        this.setState({
+        body: '',
+        parent_id: null,
+        post_id: this.props.currentPostId
+        })
+    });
+  }
+
+  update() {
+    return e => this.setState({
+      body: e.currentTarget.value,
+    });
   }
 
   commentType() {

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Comment from './comment';
-import { fetchComments, createComment } from '../../actions/comment_actions';
+import { fetchAllComments, fetchComments, createComment } from '../../actions/comment_actions';
 import { openPostModal } from '../../actions/modal_actions';
 
 const mSP = (state, ownProps) => {
@@ -18,6 +18,7 @@ const mSP = (state, ownProps) => {
 
 const mDP = dispatch => {
   return {
+    fetchAllComments: () => dispatch(fetchAllComments()),
     fetchComments: postId => dispatch(fetchComments(postId)),
     createComment: comment => dispatch(createComment(comment)),
     openPostModal: (modalType, imageUrl, imageId) => dispatch(openPostModal(modalType, imageUrl, imageId)),
