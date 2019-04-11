@@ -31,7 +31,6 @@ class ProfileBodyPartial extends React.Component {
             <div className="profile-right-top">
               <div className="profile-right-top-username">{this.props.currentUser.username}</div>
               <button className="profile-right-top-logout" onClick={this.props.logoutUser} hidden={hidden}>Logout</button>
-              <a href="/" className='upload-container'><i className="fas fa-upload"></i></a>
             </div>
             <div className="profile-right-mid">
               <div className="profile-right-mid-posts"> { posts } posts </div>

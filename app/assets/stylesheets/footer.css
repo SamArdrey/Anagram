@@ -27,3 +27,29 @@ footer {
   text-align: center;
   width: 100%
 }
+
+nav {
+  display: block;
+  flex-grow: 5;
+  font-weight: 600;
+  margin-block-end: 3px;
+  margin-bottom: 3px;
+  /* margin-inline-end: 16px; */
+  /* margin-right: 16px; */
+}
+
+.linkedin {
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.github {
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 25px;
+  text-align: left;
+}
