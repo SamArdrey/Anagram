@@ -14,6 +14,7 @@ import ProfileContainer from './profile/profile_container';
 import CreatePostContainer from './post/create_post_container';
 import HeaderContainer from "./header_footer/header_container";
 import ExploreContainer from './explore/explore_container';
+import Footer from './header_footer/footer';
 
 const App = () => (
   <div>
@@ -25,6 +26,7 @@ const App = () => (
       <ProtectedRoute exact path="/:user_id" component={ProfileContainer} />
       <Route exact path="/" component={ExploreContainer} />
     </Switch>
+    <ProtectedRoute component={Footer} />
   </div>
 );
 

@@ -1,11 +1,13 @@
 .explore-page {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   width: 100%;
   max-width: 600px;
   position: relative;
   vertical-align: baseline;
-  padding-top: 60px;
+  align-items: stretch;
+  padding-top: 133px;
   margin-left: auto;
   margin-right: auto;
 }

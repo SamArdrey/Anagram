@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      openCreatePostModal: (modal) => dispatch(openCreatePostModal(modal))
+      openCreatePostModal: modal => dispatch(openCreatePostModal(modal))
     };
 };
 

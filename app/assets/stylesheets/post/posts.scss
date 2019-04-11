@@ -1,17 +1,14 @@
-.posts-page{
-  display: flex;
-  width: 71%;
+.posts-page {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-image-li {
   border-top: 1px solid lightgray;
   padding-top: 50px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, auto);
   grid-gap: 30px;
-  margin-left: 30%;
-  margin-right: 30%;
-  width: 1000px
 }
 
 .post-image-link {

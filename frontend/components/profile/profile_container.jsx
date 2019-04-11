@@ -1,9 +1,9 @@
 import { logout } from '../../actions/session_actions';
 import { fetchUserById } from '../../actions/user_actions';
 import { fetchPosts } from '../../actions/post_actions';
+import Profile from './profile';
 
 import { connect } from 'react-redux';
-import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
   let profileId = parseInt(ownProps.match.url.slice(1));

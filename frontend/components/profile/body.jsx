@@ -22,14 +22,13 @@ class ProfileBodyPartial extends React.Component {
     }
 
     return(
-
       <div className="profile-body">
-        <div className="profile-background-div">
+        {/* <div className="profile-background-div"> */}
           <div className="profile-left">
               <img className="profile-left-image" src={this.props.currentUser.photoUrl} />
           </div>
           <div className="profile-right">
-            <div className="spash-right-top">
+            <div className="profile-right-top">
               <div className="profile-right-top-username">{this.props.currentUser.username}</div>
               <button className="profile-right-top-logout" onClick={this.props.logoutUser} hidden={hidden}>Logout</button>
               <a href="/" className='upload-container'><i className="fas fa-upload"></i></a>
@@ -44,7 +43,7 @@ class ProfileBodyPartial extends React.Component {
               <div className="profile-right-bot-profile">{this.props.currentUser.profile_body}</div>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </div>
     )
   }

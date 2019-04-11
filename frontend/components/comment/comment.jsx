@@ -50,7 +50,6 @@ class Comment extends React.Component {
 
   generateCommentList() {
     let organizedComments = this.organizeComments();
-    // debugger;
 
     return organizedComments.map(id => {
       let newClass;

@@ -13,14 +13,29 @@
 
 header {
   border-bottom: 1px solid #e6e6e6;
-  height: 72px;
+  height: 77px;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .header-box{
+  align-items: center;
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
-  margin-left: 21.26%;
-  margin-right: 21.26%;
+  flex-direction: row;
+  height: 77px;
+  justify-content: center;
+  max-width: 1010px;
+  padding: 20px;
+  padding-bottom: 26px;
+  padding-top: 26px;
+  vertical-align: baseline;
+  width: 100%;
 }
 
 .header-camera-image,
@@ -31,21 +46,15 @@ header {
 }
 
 .header-upload-image-c {
-  margin-bottom: 8px;
+
 }
 
 .header-vertical-line {
   font-size: 40px;
 }
 
-.header-left {
-  display: flex;
-  justify-content: flex-start;
-}
-
 .header-camera-image {
-  display: inline-block;
-  margin-top: 26px;
+  margin-top: 3px;
 }
 
 .header-logo-container {
@@ -53,30 +62,56 @@ header {
 }
 
 .header-vertical-line {
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: -10px
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  margin-right: 16px;
+  position: relative;
 }
 
 .header-logo {
-  display: inline-block;
   font-family: lobster;
   font-size: 26px;
-  margin-top: 22px;
+}
+
+.header-right-container {
+  align-content: stretch;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  flex-grow: 1;
+  position: relative;
+  justify-content: flex-end;
+  width: 50%;
 }
 
 .header-right {
+  align-items: stretch;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  margin-top: 24px;
-  width: 80px
+  width: 100px;
+}
+
+.header-left-container {
+  align-content: stretch;
+  align-items: center;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: row;
+  flex-grow: 0;
+  justify-content: flex-start;
+  position: relative;
+  vertical-align: baseline;
+  width: 50%;
 }
 
 .header-upload-link {
-  display: inline-block;
+  // display: inline-block;
 }
 
 .header-person-link {
-  display: inline-block;
+  // display: inline-block;
 }

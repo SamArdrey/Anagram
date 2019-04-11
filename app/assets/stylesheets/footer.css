@@ -1,0 +1,29 @@
+footer {
+  align-items: stretch;
+  background-color: rgb(250, 250, 250);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  line-height: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+}
+
+.footer-insides {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  /* also try column */
+  line-height: 18px;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 935px;
+  padding-top: auto;
+  padding-bottom: auto;
+  position: relative;
+  text-align: center;
+  width: 100%
+}
