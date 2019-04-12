@@ -38,16 +38,17 @@ class Profile extends React.Component {
     }
 
     return (
-      <div className="class-body">
-        <Modal />
-        <ProfileBodyPartial
-          profileId={this.props.profileId}
-          logoutUser={this.props.logoutUser}
-          currentUser={this.props.currentUser}
-          currentUserId={this.props.currentUserId}
-        />
-        <PostsContainer currentProfileId={this.props.profileId}/>
-      </div>
+      <>
+        <div className="class-body">
+          <ProfileBodyPartial
+            profileId={this.props.profileId}
+            logoutUser={this.props.logoutUser}
+            currentUser={this.props.currentUser}
+            currentUserId={this.props.currentUserId}
+          />
+          <PostsContainer currentProfileId={this.props.profileId}/>
+        </div>
+      </>
     )
   }
 }

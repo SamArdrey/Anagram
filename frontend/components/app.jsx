@@ -15,9 +15,11 @@ import CreatePostContainer from './post/create_post_container';
 import HeaderContainer from "./header_footer/header_container";
 import ExploreContainer from './explore/explore_container';
 import Footer from './header_footer/footer';
+import Modal from './modal/modal';
 
 const App = () => (
   <div>
+    <Modal/>
     <ProtectedRoute component={HeaderContainer} />
     <Switch>
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

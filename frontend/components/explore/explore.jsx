@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionFormContainer from '../session_form/session_form_container';
 import CommentContainer from '../comment/comment_container';
+import Modal from '../modal/modal';
 
 class Explore extends React.Component {
   constructor(props) {
@@ -22,7 +23,6 @@ class Explore extends React.Component {
     } else if (!this.props.posts) {
       return null;
     }
-
 
     let posts = Object.keys(this.props.posts).reverse().map(id => {
       let profileLink = "/#/" + this.props.posts[id].authorId;
