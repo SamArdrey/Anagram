@@ -17,6 +17,7 @@ ActiveRecord::Base.transaction do
     terry = User.create!(username: "Terry", email: 'email4@email.com', password: "thisisApassword1", profile_photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/terry.jpeg"), filename: "terry.jpeg"}, name: "Crews", profile_body: "Photos courtesy of http://www.alanaperino.com")
 
   Post.destroy_all
+    p1 = Post.create!(author_id: chuck.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/s7.jpg"), filename: "s7.jpg"}, body_text: "The First rule of Chuck Norris is: you do not talk about Chuck Norris.")
     a7 = Post.create!(author_id: terry.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/A7.jpg"), filename: "a7.jpg"}, body_text: "")
     p7 = Post.create!(author_id: chuck.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/s15.jpg"), filename: "s15.jpg"}, body_text: "Chuck Norris can split the atom. With his bare hands.")
     p17 = Post.create!(author_id: jackie.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/s17.jpg"), filename: "s17.jpg"}, body_text: "Chuck Norris can build a snowman out of rain.")
@@ -39,7 +40,6 @@ ActiveRecord::Base.transaction do
     a4 = Post.create!(author_id: terry.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/A4.jpg"), filename: "a4.jpg"}, body_text: "")
     a2 = Post.create!(author_id: jean.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/A2.jpg"), filename: "a2.jpg"}, body_text: "")
     p2 = Post.create!(author_id: chuck.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/s6.jpg"), filename: "s6.jpg"}, body_text: "Chuck Norris doesn't read books. He stares them down until he gets the information he wants.")
-    p1 = Post.create!(author_id: chuck.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/s7.jpg"), filename: "s7.jpg"}, body_text: "The First rule of Chuck Norris is: you do not talk about Chuck Norris.")
     a1 = Post.create!(author_id: jean.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/A1.jpg"), filename: "a1.jpg"}, body_text: "")
     a6 = Post.create!(author_id: terry.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/A6.jpg"), filename: "a6.jpg"}, body_text: "")
     p8 = Post.create!(author_id: chuck.id, photo:{ io: open("https://s3-us-west-1.amazonaws.com/anagram-dev-aa/s9.jpg"), filename: "s9.jpg"}, body_text: "Once a cobra bit Chuck Norris' leg. After five days of excruciating pain, the cobra died.")
