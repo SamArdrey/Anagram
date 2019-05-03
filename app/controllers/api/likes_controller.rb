@@ -7,14 +7,20 @@ class Api::LikesController < ApplicationController
     @like = Like.new(like_params)
 
     if @like.save
-      render :show
+      render :index
     else
       render @like.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @like = Like.find(:id params[id])
+    @like = Like.find(:id params[:id])
+
+    if @like.user_id == current_user.id && @like.destroy
+      render :index
+    else
+      render "invalid user"
+    end
   end
 
   private
