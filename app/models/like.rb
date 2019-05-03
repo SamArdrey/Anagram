@@ -7,7 +7,7 @@ class Like < ApplicationRecord
     foreign_key: :post_id,
     class_name: :Post
 
-  belongs_to :user,
+  belongs_to :liker,
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :User

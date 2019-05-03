@@ -11,14 +11,13 @@ json.comments do
       json.extract! comment, :id, :body, :user_id, :parent_id
     end
   end
-end
+end 
 
 json.likes do
-  @post.likes.each do |like|
-    json.set! like.id do
-      json.exrtact! like, :id
-      json.user like.user.username
-    end
+  post.likers.each do |like|
+    json.userId like.id
+    json.extract! like, :username
+    json.profilePic url_for(like.profile_photo)
   end
 end
 

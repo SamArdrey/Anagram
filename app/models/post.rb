@@ -30,4 +30,7 @@ class Post < ApplicationRecord
     foreign_key: :post_id,
     class_name: :Like,
     dependent: :destroy
+
+  has_many :likers,
+    through: :likes
 end
