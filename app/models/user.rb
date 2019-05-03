@@ -32,6 +32,12 @@ class User < ApplicationRecord
     class_name: :Comment,
     dependent: :destroy
 
+  has_many :liked_posts,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Like,
+    dependent: :destroy
+
   attr_reader :password
 
   after_initialize :ensure_session_token
