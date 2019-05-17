@@ -1,6 +1,6 @@
 class Api::LikesController < ApplicationController
   def index
-    @likes = Like.where(:post_id params[:post_id])
+    @likes = Like.where(:user_id current_user.id)
   end
 
   def create

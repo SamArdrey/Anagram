@@ -1,7 +1,6 @@
 import React from 'react';
 import SessionFormContainer from '../session_form/session_form_container';
 import CommentContainer from '../comment/comment_container';
-import Modal from '../modal/modal';
 
 class Explore extends React.Component {
   constructor(props) {
@@ -43,6 +42,7 @@ class Explore extends React.Component {
             <img className="post-mid-image" key={id} src={this.props.posts[id].photoUrl}/>
           </div>
           <div className="post-bottom">
+            <div></div>
             <CommentContainer
               formType='Explore Form'
               postId={id}
