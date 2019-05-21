@@ -1,6 +1,6 @@
 class Api::LikesController < ApplicationController
   def index
-    @likes = Like.where(:user_id current_user.id)
+    @likes = Like.where(user_id: current_user.id)
   end
 
   def create
@@ -14,7 +14,7 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(:id params[:id])
+    @like = Like.find(id: params[:id])
 
     if @like.user_id == current_user.id && @like.destroy
       render :index

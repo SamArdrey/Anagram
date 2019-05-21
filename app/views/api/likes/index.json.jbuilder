@@ -1,5 +1,5 @@
 @likes.each do |like|
-  like.post_id do
-    like
+  json.set! like.post_id do
+    json.extract! like, :id, :post_id
   end
 end

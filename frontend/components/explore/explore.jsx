@@ -9,6 +9,7 @@ class Explore extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllComments();
+    this.props.fetchAllLikes();
     this.props.fetchAllPosts();
   }
 

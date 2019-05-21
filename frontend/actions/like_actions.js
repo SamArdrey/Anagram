@@ -8,7 +8,7 @@ export const receiveLikes = likes => ({
 });
 
 export const fetchAllLikes = () => dispatch => (
-  CommentAPIUtil.fetchAllLikes().then(likes => (
+  LikeAPIUtil.fetchAllLikes().then(likes => (
     dispatch(receiveLikes(likes))
   ))
 );
