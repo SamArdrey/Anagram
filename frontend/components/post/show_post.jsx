@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentContainer from '../comment/comment_container';
+import LikeContainer from '../like/like_container';
 
 class ShowPost extends React.Component {
   constructor(props) {
@@ -84,6 +85,9 @@ class ShowPost extends React.Component {
           </div>
 
           <div className="show-right-mid">
+            <LikeContainer
+              post={this.props.posts[this.props.currentPostId]}
+            />
             <CommentContainer
               post={this.props.posts[this.props.currentPostId]}
             />

@@ -1,6 +1,7 @@
+import { connect } from 'react-redux';
+
 import CreatePost from './create_post';
 import { closeModal } from '../../actions/modal_actions';
-import { connect } from 'react-redux';
 import { uploadPhoto } from '../../actions/post_actions';
 
 const mSP = (state) => {

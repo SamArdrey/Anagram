@@ -9,10 +9,6 @@ class Posts extends React.Component {
     this.renderPhotos = this.renderPhotos.bind(this);
   }
 
-  componentDidMount() {
-    // this.props.fetchPosts(this.props.currentProfileId);
-  }
-
   renderPhotos() {
     if (Object.keys(this.props.userPosts).length > 0) {
       this.state.posts = Object.keys(this.props.userPosts).reverse().map( id => (
