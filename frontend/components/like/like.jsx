@@ -37,7 +37,6 @@ class Likes extends React.Component {
       isLiked = window.images.like;
     }
 
-    console.log(this.state.likeCount);
     return(
       <div className="likes-container">
         <button onClick={() => this.toggleLike()} className="like-button">
