@@ -15,7 +15,6 @@ footer {
   align-items: stretch;
   display: flex;
   flex-direction: row;
-  /* also try column */
   line-height: 18px;
   justify-content: space-between;
   margin-left: auto;

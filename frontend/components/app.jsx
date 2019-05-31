@@ -12,9 +12,9 @@ import SignUpFormContainer from './signup_form/signup_form_container';
 import SessionFormContainer from './session_form/session_form_container';
 import ProfileContainer from './profile/profile_container';
 import CreatePostContainer from './post/create_post_container';
-import HeaderContainer from "./header_footer/header_container";
+import HeaderContainer from "./header/header_container";
 import ExploreContainer from './explore/explore_container';
-import Footer from './header_footer/footer';
+import Footer from './footer/footer';
 import Modal from './modal/modal';
 
 const App = () => (

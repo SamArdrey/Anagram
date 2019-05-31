@@ -16,6 +16,7 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.fetchUserById(this.state.profileId);
     this.props.fetchPosts(this.state.profileId);
+    this.props.fetchAllLikes();
   }
 
   changeState() {

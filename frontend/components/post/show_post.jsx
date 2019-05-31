@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentContainer from '../comment/comment_container';
 import LikeContainer from '../like/like_container';
+import CommentFormContainer from '../comment/comment_form_container';
 
 class ShowPost extends React.Component {
   constructor(props) {
@@ -85,11 +86,14 @@ class ShowPost extends React.Component {
           </div>
 
           <div className="show-right-mid">
+            <CommentContainer
+              post={this.props.posts[this.props.currentPostId]}
+            />
             <LikeContainer
               post={this.props.posts[this.props.currentPostId]}
             />
-            <CommentContainer
-              post={this.props.posts[this.props.currentPostId]}
+            <CommentFormContainer
+              postId={this.props.currentPostId}
             />
           </div>
         </div>

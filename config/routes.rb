@@ -15,10 +15,10 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end
 
-    resources :likes, only: [:index, :create, :destroy]
-
     get "comments/all", to: "comments#all"
     resources :comments, only: [:show, :create]
+
+    resources :likes, only: [:index, :create, :destroy]
   end
 
   root "static_pages#root"

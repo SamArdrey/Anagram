@@ -1,0 +1,25 @@
+.likes-container {
+  align-items: left;
+  border-top: 1px solid #EFEFEF;
+  border-bottom: 1px solid #EFEFEF;
+  display: flex;
+  flex-direction: column;
+  /* position: absolute; */
+  /* top: 72px; */
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+.like-button {
+  padding-bottom: 3px
+}
+
+.like-image {
+  width: 17px;
+  color: red;
+}
+
+.num-likes {
+  font-size: 12px;
+}

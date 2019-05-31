@@ -5,10 +5,17 @@ export const fetchAllLikes = () => (
   })
 );
 
-export const createLike = like => (
+export const createLike = post_id => (
   $.ajax ({
     method: 'POST',
     url: `/api/likes/`,
-    data: { like }
+    data: {like: { post_id }}
+  })
+);
+
+export const deleteLike = like => (
+  $.ajax ({
+    method: 'DELETE',
+    url: `/api/likes/${like.id}`,
   })
 );

@@ -11,21 +11,30 @@ class Comment extends React.Component {
     };
 
     this.formType = {};
-
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.showComments = this.showComments.bind(this);
     this.generateCommentList = this.generateCommentList.bind(this);
     this.organizeComments = this.organizeComments.bind(this);
     this.mergeComments = this.mergeComments.bind(this);
-    this.submitForm = this.submitForm.bind(this);
-    this.commentType = this.commentType.bind(this);
 
+    this.commentType = this.commentType.bind(this);
     this.commentType();
   }
 
   componentDidMount() {
     if (this.props.formType !== 'Explore Form') {
       this.props.fetchComments(this.props.currentPostId);
+    }
+  }
+
+  commentType() {
+    if (this.props.formType === 'Explore Form') {
+      this.formType['midBody'] = "show-right-mid-body-explore",
+      this.formType['midUl'] = "show-right-mid-ul-explore",
+      this.formType['bottomBody'] = "show-right-bottom-body-explore"
+    } else {
+      this.formType['midBody'] = "show-right-mid-body",
+      this.formType['midUl'] = "show-right-mid-ul",
+      this.formType['bottomBody'] = "show-right-bottom-body"
     }
   }
 
@@ -110,52 +119,6 @@ class Comment extends React.Component {
     return merged.concat(parents).concat(children);
   }
 
-  submitForm(newClassName) {
-    return (
-      <form onSubmit={ this.handleSubmit } className={ newClassName }>
-        <input
-          type="text"
-          value={ this.state.body }
-          onChange={ this.update() }
-          className={ newClassName }
-          placeholder="Add a comment..."
-          name="comment"
-          />
-        <button type="submit" />
-      </form>
-    )
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const body = Object.assign({}, this.state);
-    this.props.createComment(body).then(() => {
-        this.setState({
-        body: '',
-        parent_id: null,
-        post_id: this.props.currentPostId
-        })
-    });
-  }
-
-  update() {
-    return e => this.setState({
-      body: e.currentTarget.value,
-    });
-  }
-
-  commentType() {
-    if (this.props.formType === 'Explore Form') {
-      this.formType['midBody'] = "show-right-mid-body-explore",
-      this.formType['midUl'] = "show-right-mid-ul-explore",
-      this.formType['bottomBody'] = "show-right-bottom-body-explore"
-    } else {
-      this.formType['midBody'] = "show-right-mid-body",
-      this.formType['midUl'] = "show-right-mid-ul",
-      this.formType['bottomBody'] = "show-right-bottom-body"
-    }
-  }
-
   render() {
     const userCommentObject = {
       body: this.props.postBodyText,
@@ -164,18 +127,12 @@ class Comment extends React.Component {
     };
 
     return (
-      <>
-        <div className={this.formType.midBody}>
-          <ul className={this.formType.midUl}>
-              { this.showComments(userCommentObject, "parent", 0) }
-              { this.generateCommentList() }
-          </ul>
-
-        </div>
-        <div className={this.formType.bottomBody}>
-          { this.submitForm("comment-form") }
-        </div>
-      </>
+      <div className={this.formType.midBody}>
+        <ul className={this.formType.midUl}>
+            { this.showComments(userCommentObject, "parent", 0) }
+            { this.generateCommentList() }
+        </ul>
+      </div>
     )
   }
 }

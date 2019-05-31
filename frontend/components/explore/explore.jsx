@@ -1,6 +1,8 @@
 import React from 'react';
 import SessionFormContainer from '../session_form/session_form_container';
 import CommentContainer from '../comment/comment_container';
+import CommentFormContainer from '../comment/comment_form_container';
+import LikeContainer from '../like/like_container';
 
 class Explore extends React.Component {
   constructor(props) {
@@ -48,6 +50,12 @@ class Explore extends React.Component {
               formType='Explore Form'
               postId={id}
               post={this.props.posts[id]}
+            />
+            <LikeContainer
+              post={this.props.posts[id]}
+            />
+            <CommentFormContainer
+              postId={id}
             />
           </div>
         </div>

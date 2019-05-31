@@ -17,7 +17,7 @@ class Header extends React.Component {
             </button>
             <a href={`/#/${this.props.currentUserId}`} className="header-person-image">
                 <img className="header-person-image" src={window.images.person}/>
-              </a>
+            </a>
             </div>
           </span>
         </div>

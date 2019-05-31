@@ -23,7 +23,6 @@ class ProfileBodyPartial extends React.Component {
 
     return(
       <div className="profile-body">
-        {/* <div className="profile-background-div"> */}
           <div className="profile-left">
               <img className="profile-left-image" src={this.props.currentUser.photoUrl} />
           </div>
@@ -42,7 +41,6 @@ class ProfileBodyPartial extends React.Component {
               <div className="profile-right-bot-profile">{this.props.currentUser.profile_body}</div>
             </div>
           </div>
-        {/* </div> */}
       </div>
     )
   }
