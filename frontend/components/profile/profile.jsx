@@ -1,7 +1,6 @@
 import React from 'react';
 import ProfileBodyPartial from './body';
 import PostsContainer from '../post/posts_container';
-import Modal from '../modal/modal';
 
 class Profile extends React.Component {
   constructor(props) {
@@ -44,7 +43,7 @@ class Profile extends React.Component {
           <ProfileBodyPartial
             profileId={this.props.profileId}
             logoutUser={this.props.logoutUser}
-            currentUser={this.props.currentUser}
+            currentProfile={this.props.currentProfile}
             currentUserId={this.props.currentUserId}
           />
           <PostsContainer currentProfileId={this.props.profileId}/>

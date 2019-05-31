@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import {
   RECEIVE_ALL_LIKES,
   RECEIVE_LIKE,
-  DESTROY_LIKES,
+  DESTROY_LIKE,
   } from '../actions/like_actions';
 
 const likesReducer = (state = {}, action) => {
@@ -14,7 +14,7 @@ const likesReducer = (state = {}, action) => {
       return merge({}, action.likes);
     case RECEIVE_LIKE:
       return merge({}, state, action.like);
-    case DESTROY_LIKES:
+    case DESTROY_LIKE:
       return state;
     default:
       return state;

@@ -2,7 +2,7 @@ import * as LikeAPIUtil from '../util/like_api_util';
 
 export const RECEIVE_ALL_LIKES = 'RECEIVE_ALL_LIKES';
 export const RECEIVE_LIKE = 'RECEIVE_LIKE';
-export const DESTROY_LIKES = 'DESTROY_LIKES';
+export const DESTROY_LIKE = 'DESTROY_LIKE';
 
 export const receiveLikes = likes => ({
   type: RECEIVE_ALL_LIKES,
@@ -15,7 +15,7 @@ export const receiveLike = like => ({
 });
 
 export const destroyLike = like => ({
-  type: DESTROY_LIKES,
+  type: DESTROY_LIKE,
   like
 });
 
