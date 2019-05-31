@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     profileId: profileId,
     loggedIn: Boolean(state.session.id),
     currentProfile: state.entities.users[profileId],
+    following: state.entities.following,
     currentUserId: state.session.id,
   };
 };
@@ -25,7 +26,8 @@ const mapDispatchToProps = dispatch => {
       fetchUserById: userId => dispatch(fetchUserById(userId)),
       fetchAllLikes: () => dispatch(fetchAllLikes()),
       fetchAllFollowing: () => dispatch(fetchAllFollowing()),
-
+      follow: (followedUserId) => dispatch(createFollow(followedUserId)),
+      unfollow: (follow) => dispatch(deleteFollow(follow)),
     };
 };
 

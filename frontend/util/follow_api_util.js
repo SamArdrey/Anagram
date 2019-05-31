@@ -1,11 +1,11 @@
-export const fetchAllfollowing = () => (
+export const fetchAllFollowing = () => (
   $.ajax ({
     method: 'GET',
     url: `/api/follows/`
   })
 );
 
-export const createfollow = followed_user_id => (
+export const createFollow = followed_user_id => (
   $.ajax ({
     method: 'POST',
     url: `/api/follows/`,
@@ -13,9 +13,9 @@ export const createfollow = followed_user_id => (
   })
 );
 
-export const deletefollow = follow => (
+export const deleteFollow = follow => (
   $.ajax ({
     method: 'DELETE',
-    url: `/api/follows/${follow.id}`,
+    url: `/api/follows/${follow}`,
   })
 );
