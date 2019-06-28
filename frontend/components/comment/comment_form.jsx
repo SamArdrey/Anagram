@@ -10,14 +10,8 @@ class CommentForm extends React.Component {
       post_id: this.props.currentPostId,
     };
 
-    this.formType = {};
-
     this.submitForm = this.submitForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.generateCommentList = this.generateCommentList.bind(this);
-    this.commentType = this.commentType.bind(this);
-
-    this.commentType();
   }
 
   submitForm(newClassName) {
@@ -34,18 +28,6 @@ class CommentForm extends React.Component {
         <button type="submit" />
       </form>
     )
-  }
-
-  commentType() {
-    if (this.props.formType === 'Explore Form') {
-      this.formType['midBody'] = "show-right-mid-body-explore",
-      this.formType['midUl'] = "show-right-mid-ul-explore",
-      this.formType['bottomBody'] = "show-right-bottom-body-explore"
-    } else {
-      this.formType['midBody'] = "show-right-mid-body",
-      this.formType['midUl'] = "show-right-mid-ul",
-      this.formType['bottomBody'] = "show-right-bottom-body"
-    }
   }
 
   handleSubmit(e) {
@@ -68,7 +50,7 @@ class CommentForm extends React.Component {
 
   render(){
     return (
-      <div className={this.formType.bottomBody}>
+      <div className="show-right-bottom-body">
         { this.submitForm("comment-form") }
       </div>
     )

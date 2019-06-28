@@ -10,14 +10,11 @@ class Comment extends React.Component {
       post_id: this.props.currentPostId,
     };
 
-    this.formType = {};
     this.showComments = this.showComments.bind(this);
     this.generateCommentList = this.generateCommentList.bind(this);
     this.organizeComments = this.organizeComments.bind(this);
     this.mergeComments = this.mergeComments.bind(this);
-
     this.commentType = this.commentType.bind(this);
-    this.commentType();
   }
 
   componentDidMount() {
@@ -26,15 +23,11 @@ class Comment extends React.Component {
     }
   }
 
-  commentType() {
+  commentType(className) {
     if (this.props.formType === 'Explore Form') {
-      this.formType['midBody'] = "show-right-mid-body-explore",
-      this.formType['midUl'] = "show-right-mid-ul-explore",
-      this.formType['bottomBody'] = "show-right-bottom-body-explore"
+      return `${className}-explore`;
     } else {
-      this.formType['midBody'] = "show-right-mid-body",
-      this.formType['midUl'] = "show-right-mid-ul",
-      this.formType['bottomBody'] = "show-right-bottom-body"
+      return className;
     }
   }
 
@@ -127,8 +120,8 @@ class Comment extends React.Component {
     };
 
     return (
-      <div className={this.formType.midBody}>
-        <ul className={this.formType.midUl}>
+      <div className={this.commentType("show-right-mid-body")}>
+        <ul className={this.commentType("show-right-mid-ul")}>
             { this.showComments(userCommentObject, "parent", 0) }
             { this.generateCommentList() }
         </ul>

@@ -9,7 +9,6 @@ class Api::PostsController < ApplicationController
   def all
     @comments = Comment.all
     @posts = Post.with_attached_photo.all
-    # @posts.reject! { |post| post.author_id == current_user.id }
   end
 
   def show
