@@ -12,6 +12,7 @@ import SignUpFormContainer from './signup_form/signup_form_container';
 import SessionFormContainer from './session_form/session_form_container';
 import ProfileContainer from './profile/profile_container';
 import CreatePostContainer from './post/create_post_container';
+import ShowPostContainer from './post/show_post_container';
 import HeaderContainer from "./header/header_container";
 import ExploreContainer from './explore/explore_container';
 import Footer from './footer/footer';
@@ -19,9 +20,10 @@ import Modal from './modal/modal';
 
 const App = () => (
   <div>
-    <Modal/>
+    <Modal />
     <ProtectedRoute component={HeaderContainer} />
     <Switch>
+      <ProtectedRoute exact path="/post/:post_id" component={ShowPostContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path="/upload" component={CreatePostContainer} />
       <Route exact path="/login" component={SessionFormContainer} />

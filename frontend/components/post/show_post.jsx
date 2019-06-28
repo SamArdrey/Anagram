@@ -11,54 +11,59 @@ class ShowPost extends React.Component {
     this.togglePreviousButton = this.togglePreviousButton.bind(this);
   }
 
-  toggleNextButton() {
-    let postKeysArray = Object.keys(this.props.posts).reverse();
-    let nextPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) + 1;
-    let nextPostKey = postKeysArray[nextPostArrayIndex];
+  componentDidMount() {
+    this.currentPost = this.props.fetchPost(this.props.currentPostId);
+    console.log(this.props);
+  }
 
-    if (nextPostArrayIndex < postKeysArray.length) {
-      return (
-        <div className="next-arrow">
-          <button onClick={(this.props.closeModal())} onClick={() =>
-            this.props.openPostModal(
-              'show',
-              this.props.posts[String(nextPostKey)].photoUrl,
-              String(nextPostKey)
-              )}>
-            <img src={window.images.nextPost} className="next-post-button"/>
-          </button>
-        </div>
-      )
-    } else {
-      return (
-        <div className="empty-div"></div>
-      )
-    }
+  toggleNextButton() {
+    // let postKeysArray = Object.keys(this.props.posts).reverse();
+    // let nextPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) + 1;
+    // let nextPostKey = postKeysArray[nextPostArrayIndex];
+
+    // if (nextPostArrayIndex < postKeysArray.length) {
+    //   return (
+    //     <div className="next-arrow">
+    //       <button onClick={(this.props.closeModal())} onClick={() =>
+    //         this.props.openPostModal(
+    //           'show',
+    //           this.props.posts[String(nextPostKey)].photoUrl,
+    //           String(nextPostKey)
+    //           )}>
+    //         <img src={window.images.nextPost} className="next-post-button"/>
+    //       </button>
+    //     </div>
+    //   )
+    // } else {
+    //   return (
+    //     <div className="empty-div"></div>
+    //   )
+    // }
   }
 
   togglePreviousButton() {
-    let postKeysArray = Object.keys(this.props.posts).reverse();
-    let previousPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) - 1;
-    let previousPostKey = postKeysArray[previousPostArrayIndex];
+    // let postKeysArray = Object.keys(this.props.posts).reverse();
+    // let previousPostArrayIndex = postKeysArray.indexOf(this.props.currentPostId) - 1;
+    // let previousPostKey = postKeysArray[previousPostArrayIndex];
 
-    if (previousPostArrayIndex >= 0) {
-      return (
-        <div className="previous-arrow">
-          <button onClick={(this.props.closeModal())} onClick={() =>
-              this.props.openPostModal(
-                'show',
-                this.props.posts[String(previousPostKey)].photoUrl,
-                String(previousPostKey)
-                )}>
-            <img src={window.images.previousPost} className="previous-post-button"/>
-          </button>
-        </div>
-      )
-    } else {
-      return (
-        <div className="empty-div"></div>
-      )
-    }
+    // if (previousPostArrayIndex >= 0) {
+    //   return (
+    //     <div className="previous-arrow">
+    //       <button onClick={(this.props.closeModal())} onClick={() =>
+    //           this.props.openPostModal(
+    //             'show',
+    //             this.props.posts[String(previousPostKey)].photoUrl,
+    //             String(previousPostKey)
+    //             )}>
+    //         <img src={window.images.previousPost} className="previous-post-button"/>
+    //       </button>
+    //     </div>
+    //   )
+    // } else {
+    //   return (
+    //     <div className="empty-div"></div>
+    //   )
+    // }
   }
 
   render() {
@@ -67,7 +72,7 @@ class ShowPost extends React.Component {
         {this.togglePreviousButton()}
 
         <div className='show-left-post-container'>
-          <img className='show-image' src={this.props.currentPost} />
+          <img className='show-image' src={this.currentPost} />
         </div>
 
         <div className="show-right-post-container">
@@ -86,12 +91,12 @@ class ShowPost extends React.Component {
           </div>
 
           <div className="show-right-mid">
-            <CommentContainer
+            {/* <CommentContainer
               post={this.props.posts[this.props.currentPostId]}
             />
             <LikeContainer
               post={this.props.posts[this.props.currentPostId]}
-            />
+            /> */}
             <CommentFormContainer
               postId={this.props.currentPostId}
             />
