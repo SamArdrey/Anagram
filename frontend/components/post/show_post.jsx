@@ -12,8 +12,7 @@ class ShowPost extends React.Component {
   }
 
   componentDidMount() {
-    this.currentPost = this.props.fetchPost(this.props.currentPostId);
-    console.log(this.props);
+    this.props.fetchPost(this.props.currentPostId);
   }
 
   toggleNextButton() {
