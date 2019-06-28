@@ -10,6 +10,7 @@ class ShowPost extends React.Component {
     this.toggleNextButton = this.toggleNextButton.bind(this);
     this.togglePreviousButton = this.togglePreviousButton.bind(this);
     this.changeHTMLClass = this.changeHTMLClass.bind(this);
+    this.refreshPage = this.refreshPage.bind(this);
   }
 
   componentDidMount() {
@@ -73,6 +74,10 @@ class ShowPost extends React.Component {
     return (nameBeginning + "-page")
   }
 
+  refreshPage() {
+    if (this.props.pageType === 'modal') window.location.reload();
+  }
+
   render() {
     if (!this.props.current) return null;
 
@@ -88,13 +93,13 @@ class ShowPost extends React.Component {
         <div className={this.changeHTMLClass("show-right-post-container")}>
           <div className={this.changeHTMLClass("show-right-top")}>
             <div className={this.changeHTMLClass("show-right-top-profile-image-container")}>
-              <a href="/">
+              <a href={`/#/${author.id}`} onClick={() => this.refreshPage()}>
                 <img className={this.changeHTMLClass("show-right-top-profile-image")} src={author.photoUrl}/>
               </a>
             </div>
 
             <div className={this.changeHTMLClass("show-right-top-username")}>
-              <a href={`/${author.id}`}>
+              <a href={`/#/${author.id}`} onClick={() => this.refreshPage()}>
                 {author.username}
               </a>
             </div>
